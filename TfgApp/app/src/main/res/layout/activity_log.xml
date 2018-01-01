@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:id="@+id/layoutTabla"
+    android:gravity="center">
+    <ScrollView
+        android:id="@+id/scrollvertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:layout_weight="1">
+        <LinearLayout
+                android:id="@+id/linlay"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TableLayout
+                    android:id="@+id/tabla"
+                    android:background="@color/colorGreenApp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center">
+                </TableLayout>
+            </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

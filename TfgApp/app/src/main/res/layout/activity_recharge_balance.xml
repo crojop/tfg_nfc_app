@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentTop="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:layout_margin="12dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:fontFamily="sans-serif"
+                    android:text="@string/currentBalance"
+                    android:textColor="@color/colorBlack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"/>
+                <TextView
+                    android:id="@+id/tv_currentBalance"
+                    android:layout_alignParentRight="true"
+                    android:fontFamily="sans-serif"
+                    android:textColor="@color/colorGreenApp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"/>
+            </RelativeLayout>
+            <View
+                android:layout_width="fill_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_height="1dp"
+                android:background="@color/colorBlack"/>
+            <TextView
+                android:id="@+id/tvTitleRechargeBalance"
+                android:fontFamily="sans-serif-smallcaps"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:textColor="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="32sp"
+                android:text="@string/balanceRecharge"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/inputQuantityRecharge"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="64sp"
+                android:padding="@dimen/activity_horizontal_margin"
+                app:counterEnabled="true"
+                app:counterMaxLength="32"
+                app:errorEnabled="true">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number|numberDecimal"
+                    android:hint="@string/quantityToRecharge"/>
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/buttonRechargeBalance"
+        style="?android:textAppearanceSmall"
+        android:layout_alignParentBottom="true"
+        android:fontFamily="sans-serif-thin"
+        android:background="@color/colorAccent"
+        android:textColor="@color/colorWhite"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="fill_horizontal"
+        android:text="@string/recharge"
+        android:textStyle="bold"/>
+
+</RelativeLayout>
