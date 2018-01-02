@@ -1,8 +1,0 @@
-INDEX VERSION 1.126+/Users/BTB/Projects/workspaceNFCEcology/.metadata/.plugins/org.eclipse.jdt.core
-1478626225.index
-1176860037.index
-3502941520.index
-2384937371.index
-37300973.index
-2405646597.index
-4187924179.index
