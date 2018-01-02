@@ -1,0 +1,356 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:2:1-220:12
+INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:2:1-220:12
+INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:2:1-220:12
+INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:2:1-220:12
+MERGED from [com.android.support:design:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/735b625126b49303397fc9c558b10be5/AndroidManifest.xml:17:1-31:12
+MERGED from [com.github.dimorinny:floating-text-button:0.0.2] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/floating-text-button-0.0.2.aar/9d2cde7e3d12f1e23a7cfca16e5cd239/AndroidManifest.xml:2:1-16:12
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/8b9edb0b33d8e779b14d584f7037dc26/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/5b771f2212693dddb47436d409c7d429/AndroidManifest.xml:17:1-26:12
+MERGED from [com.android.support:cardview-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.3.1.aar/d1bdd759fa37c835d06617e3d61c0e77/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha8] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.0-alpha8.aar/1dde0c8cc09c624ad3c9382b424e1a1a/AndroidManifest.xml:2:1-11:12
+MERGED from [com.github.Cutta:TagView:1.3] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/TagView-1.3.aar/7dcefaea3b7d1c95f93c3fb66896f49b/AndroidManifest.xml:2:1-17:12
+MERGED from [com.android.volley:volley:1.0.0] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/volley-1.0.0.aar/52108beffd404714d6fe28331bd17aef/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:transition:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/7756e3cc6aa96516f7b90441c7a6fc7a/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-v4:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/18c80a224a7f0366e2fdde43cd8f2181/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/8eb13a4894018cfbdfded4aedb3766a4/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/3d5d7a6714eff7a1c09ea67aade485f3/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/9b195794cd18405ed4d0af508bdc8f0a/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/21b44be8ef58ab50a42c73f97ba2604a/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/4893c7570db444570079177bf22f06a1/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/14a27bc42aea2784ab49dabd91af6313/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-compat:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/736160b1cfe721bf2f36626e66f75bc9/AndroidManifest.xml:17:1-31:12
+INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:2:1-220:12
+INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:2:1-220:12
+INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:2:1-220:12
+	package
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:3:5-42
+		INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:2:1-220:12
+		INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:2:1-220:12
+		INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:5:5-66
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.NFC
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:6:5-62
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:6:22-59
+uses-feature#android.hardware.nfc
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:8:5-10:35
+	android:required
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:10:9-32
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:9:9-44
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:12:5-71
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:12:22-68
+uses-permission#android.permission.READ_PROFILE
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:13:5-71
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:13:22-68
+uses-permission#android.permission.READ_CONTACTS
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:14:5-72
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:14:22-69
+application
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:16:5-218:19
+MERGED from [com.android.support:design:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/735b625126b49303397fc9c558b10be5/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:design:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/735b625126b49303397fc9c558b10be5/AndroidManifest.xml:29:5-20
+MERGED from [com.github.dimorinny:floating-text-button:0.0.2] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/floating-text-button-0.0.2.aar/9d2cde7e3d12f1e23a7cfca16e5cd239/AndroidManifest.xml:11:5-14:38
+MERGED from [com.github.dimorinny:floating-text-button:0.0.2] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/floating-text-button-0.0.2.aar/9d2cde7e3d12f1e23a7cfca16e5cd239/AndroidManifest.xml:11:5-14:38
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/8b9edb0b33d8e779b14d584f7037dc26/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/8b9edb0b33d8e779b14d584f7037dc26/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:cardview-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.3.1.aar/d1bdd759fa37c835d06617e3d61c0e77/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:cardview-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.3.1.aar/d1bdd759fa37c835d06617e3d61c0e77/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha8] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.0-alpha8.aar/1dde0c8cc09c624ad3c9382b424e1a1a/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha8] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.0-alpha8.aar/1dde0c8cc09c624ad3c9382b424e1a1a/AndroidManifest.xml:9:5-20
+MERGED from [com.github.Cutta:TagView:1.3] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/TagView-1.3.aar/7dcefaea3b7d1c95f93c3fb66896f49b/AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.Cutta:TagView:1.3] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/TagView-1.3.aar/7dcefaea3b7d1c95f93c3fb66896f49b/AndroidManifest.xml:11:5-15:19
+MERGED from [com.android.volley:volley:1.0.0] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/volley-1.0.0.aar/52108beffd404714d6fe28331bd17aef/AndroidManifest.xml:9:5-20
+MERGED from [com.android.volley:volley:1.0.0] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/volley-1.0.0.aar/52108beffd404714d6fe28331bd17aef/AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:transition:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/7756e3cc6aa96516f7b90441c7a6fc7a/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:transition:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/7756e3cc6aa96516f7b90441c7a6fc7a/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-v4:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/18c80a224a7f0366e2fdde43cd8f2181/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/18c80a224a7f0366e2fdde43cd8f2181/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/8eb13a4894018cfbdfded4aedb3766a4/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/8eb13a4894018cfbdfded4aedb3766a4/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/3d5d7a6714eff7a1c09ea67aade485f3/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/3d5d7a6714eff7a1c09ea67aade485f3/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/9b195794cd18405ed4d0af508bdc8f0a/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/9b195794cd18405ed4d0af508bdc8f0a/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/21b44be8ef58ab50a42c73f97ba2604a/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/21b44be8ef58ab50a42c73f97ba2604a/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/4893c7570db444570079177bf22f06a1/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/4893c7570db444570079177bf22f06a1/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/14a27bc42aea2784ab49dabd91af6313/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/14a27bc42aea2784ab49dabd91af6313/AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-compat:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/736160b1cfe721bf2f36626e66f75bc9/AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-compat:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/736160b1cfe721bf2f36626e66f75bc9/AndroidManifest.xml:29:5-20
+	android:supportsRtl
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:21:9-35
+	android:label
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:19:9-41
+	android:roundIcon
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:20:9-54
+	android:icon
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:18:9-41
+	android:allowBackup
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:17:9-35
+	android:theme
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:22:9-67
+activity#com.example.cristina.tfgapp.controller_view.login.LoginActivity
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:23:9-30:20
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:24:13-64
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:25:13-29:29
+action#android.intent.action.MAIN
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:26:17-69
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:26:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:28:17-77
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:28:27-74
+activity#com.example.cristina.tfgapp.controller_view.MainActivity
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:31:9-41:20
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:31:19-63
+activity#com.example.cristina.tfgapp.controller_view.menus.MenuActivity
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:42:9-50:20
+	android:parentActivityName
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:44:13-71
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:43:13-63
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:47:13-49:92
+	android:value
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:49:17-89
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:48:17-63
+activity#com.example.cristina.tfgapp.charts.barcharts.TabDemoMainActivity
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:51:9-59:20
+	android:parentActivityName
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:53:13-77
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:52:13-65
+activity#com.example.cristina.tfgapp.controller_view.shop.ProductActivity
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:60:9-74:20
+	android:parentActivityName
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:63:13-77
+	android:configChanges
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:62:13-59
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:61:13-65
+intent-filter#android.intent.action.SEARCH
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:68:13-70:29
+action#android.intent.action.SEARCH
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:69:17-71
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:69:25-68
+meta-data#android.app.searchable
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:71:13-73:50
+	android:resource
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:73:13-47
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:72:13-50
+activity#com.example.cristina.tfgapp.controller_view.settings.SettingsActivity
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:75:9-83:20
+	android:parentActivityName
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:77:13-77
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:76:13-70
+activity#com.example.cristina.tfgapp.controller_view.shop.BuyActivity
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:84:9-93:20
+	android:parentActivityName
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:87:13-79
+	android:configChanges
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:86:13-98
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:85:13-61
+activity#com.example.cristina.tfgapp.controller_view.menus.RecyclerActivity
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:94:9-102:20
+	android:parentActivityName
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:96:13-71
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:95:13-67
+activity#com.example.cristina.tfgapp.controller_view.logs.LogsActivity
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:103:9-111:20
+	android:parentActivityName
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:105:13-81
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:104:13-62
+activity#com.example.cristina.tfgapp.controller_view.settings.BracManActivity
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:112:9-120:20
+	android:parentActivityName
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:114:13-71
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:113:13-69
+activity#org.achartengine.GraphicalActivity
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:121:9-71
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:121:19-68
+activity#com.example.cristina.tfgapp.charts.piecharts.PieChart
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:122:9-130:20
+	android:parentActivityName
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:124:13-81
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:123:13-54
+activity#com.example.cristina.tfgapp.charts.barcharts.RechargesChart
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:131:9-139:20
+	android:parentActivityName
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:133:13-81
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:132:13-60
+activity#com.example.cristina.tfgapp.charts.barcharts.PaymentsChart
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:140:9-148:20
+	android:parentActivityName
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:142:13-81
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:141:13-59
+activity#com.example.cristina.tfgapp.charts.linecharts.RechargesLineChart
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:149:9-158:20
+	android:parentActivityName
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:152:13-74
+	android:configChanges
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:151:13-98
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:150:13-65
+activity#com.example.cristina.tfgapp.charts.linecharts.PaymentsLineChart
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:159:9-168:20
+	android:parentActivityName
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:162:13-73
+	android:configChanges
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:161:13-98
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:160:13-64
+activity#com.example.cristina.tfgapp.charts.barcharts.FinancialBarChart
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:169:9-177:20
+	android:parentActivityName
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:171:13-81
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:170:13-63
+activity#com.example.cristina.tfgapp.charts.linecharts.FinancialLineChart
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:178:9-187:20
+	android:parentActivityName
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:181:13-77
+	android:configChanges
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:180:13-98
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:179:13-65
+activity#com.example.cristina.tfgapp.controller_view.settings.AddTagActivity
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:188:9-197:20
+	android:parentActivityName
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:191:13-83
+	android:configChanges
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:190:13-98
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:189:13-68
+activity#com.example.cristina.tfgapp.controller_view.settings.DeleteTagActivity
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:198:9-207:20
+	android:parentActivityName
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:201:13-83
+	android:configChanges
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:200:13-98
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:199:13-71
+activity#com.example.cristina.tfgapp.controller_view.settings.RechargeBalanceActivity
+ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:208:9-217:20
+	android:parentActivityName
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:211:13-77
+	android:configChanges
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:210:13-98
+	android:name
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml:209:13-77
+uses-sdk
+INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml
+INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:design:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/735b625126b49303397fc9c558b10be5/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:design:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/735b625126b49303397fc9c558b10be5/AndroidManifest.xml:21:5-23:62
+MERGED from [com.github.dimorinny:floating-text-button:0.0.2] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/floating-text-button-0.0.2.aar/9d2cde7e3d12f1e23a7cfca16e5cd239/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.dimorinny:floating-text-button:0.0.2] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/floating-text-button-0.0.2.aar/9d2cde7e3d12f1e23a7cfca16e5cd239/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/8b9edb0b33d8e779b14d584f7037dc26/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/8b9edb0b33d8e779b14d584f7037dc26/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/5b771f2212693dddb47436d409c7d429/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/5b771f2212693dddb47436d409c7d429/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:cardview-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.3.1.aar/d1bdd759fa37c835d06617e3d61c0e77/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:cardview-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.3.1.aar/d1bdd759fa37c835d06617e3d61c0e77/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha8] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.0-alpha8.aar/1dde0c8cc09c624ad3c9382b424e1a1a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha8] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.0.0-alpha8.aar/1dde0c8cc09c624ad3c9382b424e1a1a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.Cutta:TagView:1.3] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/TagView-1.3.aar/7dcefaea3b7d1c95f93c3fb66896f49b/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.Cutta:TagView:1.3] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/TagView-1.3.aar/7dcefaea3b7d1c95f93c3fb66896f49b/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.volley:volley:1.0.0] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/volley-1.0.0.aar/52108beffd404714d6fe28331bd17aef/AndroidManifest.xml:7:5-43
+MERGED from [com.android.volley:volley:1.0.0] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/volley-1.0.0.aar/52108beffd404714d6fe28331bd17aef/AndroidManifest.xml:7:5-43
+MERGED from [com.android.support:transition:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/7756e3cc6aa96516f7b90441c7a6fc7a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/7756e3cc6aa96516f7b90441c7a6fc7a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/18c80a224a7f0366e2fdde43cd8f2181/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/18c80a224a7f0366e2fdde43cd8f2181/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/8eb13a4894018cfbdfded4aedb3766a4/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/8eb13a4894018cfbdfded4aedb3766a4/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/3d5d7a6714eff7a1c09ea67aade485f3/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/3d5d7a6714eff7a1c09ea67aade485f3/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/9b195794cd18405ed4d0af508bdc8f0a/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/9b195794cd18405ed4d0af508bdc8f0a/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/21b44be8ef58ab50a42c73f97ba2604a/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/21b44be8ef58ab50a42c73f97ba2604a/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/4893c7570db444570079177bf22f06a1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/4893c7570db444570079177bf22f06a1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/14a27bc42aea2784ab49dabd91af6313/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/14a27bc42aea2784ab49dabd91af6313/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-compat:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/736160b1cfe721bf2f36626e66f75bc9/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/736160b1cfe721bf2f36626e66f75bc9/AndroidManifest.xml:21:5-23:58
+INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml
+INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/735b625126b49303397fc9c558b10be5/AndroidManifest.xml:23:9-59
+	android:targetSdkVersion
+		INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml
+		ADDED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/src/main/AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:design:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/735b625126b49303397fc9c558b10be5/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/8b9edb0b33d8e779b14d584f7037dc26/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:appcompat-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/8b9edb0b33d8e779b14d584f7037dc26/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/5b771f2212693dddb47436d409c7d429/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:recyclerview-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.3.1.aar/5b771f2212693dddb47436d409c7d429/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:cardview-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.3.1.aar/d1bdd759fa37c835d06617e3d61c0e77/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:cardview-v7:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/cardview-v7-25.3.1.aar/d1bdd759fa37c835d06617e3d61c0e77/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:transition:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/7756e3cc6aa96516f7b90441c7a6fc7a/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:transition:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/transition-25.3.1.aar/7756e3cc6aa96516f7b90441c7a6fc7a/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-v4:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/18c80a224a7f0366e2fdde43cd8f2181/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-v4:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-v4-25.3.1.aar/18c80a224a7f0366e2fdde43cd8f2181/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/8eb13a4894018cfbdfded4aedb3766a4/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-fragment-25.3.1.aar/8eb13a4894018cfbdfded4aedb3766a4/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/3d5d7a6714eff7a1c09ea67aade485f3/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.3.1.aar/3d5d7a6714eff7a1c09ea67aade485f3/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/9b195794cd18405ed4d0af508bdc8f0a/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.3.1.aar/9b195794cd18405ed4d0af508bdc8f0a/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/21b44be8ef58ab50a42c73f97ba2604a/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.3.1.aar/21b44be8ef58ab50a42c73f97ba2604a/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/4893c7570db444570079177bf22f06a1/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.3.1.aar/4893c7570db444570079177bf22f06a1/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/14a27bc42aea2784ab49dabd91af6313/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.3.1.aar/14a27bc42aea2784ab49dabd91af6313/AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-compat:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/736160b1cfe721bf2f36626e66f75bc9/AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/support-compat-25.3.1.aar/736160b1cfe721bf2f36626e66f75bc9/AndroidManifest.xml:25:5-27:34
+	android:value
+		ADDED from [com.android.support:design:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/735b625126b49303397fc9c558b10be5/AndroidManifest.xml:27:9-31
+	android:name
+		ADDED from [com.android.support:design:25.3.1] /Users/Cristina/.gradle/caches/transforms-1/files-1.1/design-25.3.1.aar/735b625126b49303397fc9c558b10be5/AndroidManifest.xml:26:9-47

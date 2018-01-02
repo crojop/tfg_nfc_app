@@ -1,0 +1,49 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/Cristina/Downloads/TfgApp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "/Users/Cristina/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/8b9edb0b33d8e779b14d584f7037dc26/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "/Users/Cristina/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/8b9edb0b33d8e779b14d584f7037dc26/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/Cristina/Desktop/TfgApp/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml",
+            "map": [
+                {
+                    "source": "/Users/Cristina/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/8b9edb0b33d8e779b14d584f7037dc26/res/values-ldltr-v21/values-ldltr-v21.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "112",
+                        "endOffsets": "163"
+                    }
+                }
+            ]
+        }
+    ]
+}

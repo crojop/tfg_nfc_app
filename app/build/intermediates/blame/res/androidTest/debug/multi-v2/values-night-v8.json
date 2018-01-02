@@ -1,0 +1,49 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/Cristina/Desktop/Android-master/workspaceAndroidStudio/TfgApp/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "map": [
+                {
+                    "source": "/Users/Cristina/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/8b9edb0b33d8e779b14d584f7037dc26/res/values-night-v8/values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593",
+                        "endColumns": "69,83,83,95,101,101,93",
+                        "endOffsets": "120,204,288,384,486,588,682"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/Cristina/Desktop/TfgApp/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "map": [
+                {
+                    "source": "/Users/Cristina/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/8b9edb0b33d8e779b14d584f7037dc26/res/values-night-v8/values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593",
+                        "endColumns": "69,83,83,95,101,101,93",
+                        "endOffsets": "120,204,288,384,486,588,682"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/Cristina/Downloads/TfgApp/app/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "map": [
+                {
+                    "source": "/Users/Cristina/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.3.1.aar/8b9edb0b33d8e779b14d584f7037dc26/res/values-night-v8/values-night-v8.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "55,125,209,293,389,491,593",
+                        "endColumns": "69,83,83,95,101,101,93",
+                        "endOffsets": "120,204,288,384,486,588,682"
+                    }
+                }
+            ]
+        }
+    ]
+}

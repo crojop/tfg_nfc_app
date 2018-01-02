@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.cristina.tfgapp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="25" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.NFC" />
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <meta-data
+        android:name="android.support.VERSION"
+        android:value="25.3.1" />
+
+    <application
+        android:allowBackup="true"
+        android:debuggable="true"
+        android:icon="@drawable/nfc_512"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:testOnly="true"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+        <activity android:name="com.example.cristina.tfgapp.controller_view.login.LoginActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.cristina.tfgapp.controller_view.MainActivity" >
+
+            <!--
+            <intent-filter>
+                <action android:name="android.nfc.action.TECH_DISCOVERED" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.nfc.action.TECH_DISCOVERED"
+                android:resource="@xml/nfc_tech_filter" />
+            -->
+        </activity>
+        <activity
+            android:name="com.example.cristina.tfgapp.controller_view.menus.MenuActivity"
+            android:parentActivityName="com.example.cristina.tfgapp.controller_view.MainActivity" >
+
+            <!-- Parent activity meta-data to suppor0 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cristina.tfgapp.controller_view.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.example.cristina.tfgapp.charts.barcharts.TabDemoMainActivity"
+            android:parentActivityName="com.example.cristina.tfgapp.controller_view.menus.MenuActivity" >
+
+            <!-- Parent activity meta-data to suppor0 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cristina.tfgapp.controller_view.menus.MenuActivity" />
+        </activity>
+        <activity
+            android:name="com.example.cristina.tfgapp.controller_view.shop.ProductActivity"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName="com.example.cristina.tfgapp.controller_view.menus.MenuActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cristina.tfgapp.controller_view.menus.MenuActivity" />
+            <!-- Parent activity meta-data to suppor0 4.0 and lower -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity
+            android:name="com.example.cristina.tfgapp.controller_view.settings.SettingsActivity"
+            android:parentActivityName="com.example.cristina.tfgapp.controller_view.menus.MenuActivity" >
+
+            <!-- Parent activity meta-data to suppor0 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cristina.tfgapp.controller_view.menus.MenuActivity" />
+        </activity>
+        <activity
+            android:name="com.example.cristina.tfgapp.controller_view.shop.BuyActivity"
+            android:configChanges="orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:parentActivityName="com.example.cristina.tfgapp.controller_view.shop.ProductActivity" >
+
+            <!-- Parent activity meta-data to suppor0 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cristina.tfgapp.controller_view.shop.ProductActivity" />
+        </activity>
+        <activity
+            android:name="com.example.cristina.tfgapp.controller_view.menus.RecyclerActivity"
+            android:parentActivityName="com.example.cristina.tfgapp.controller_view.MainActivity" >
+
+            <!-- Parent activity meta-data to suppor0 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cristina.tfgapp.controller_view.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.example.cristina.tfgapp.controller_view.logs.LogsActivity"
+            android:parentActivityName="com.example.cristina.tfgapp.controller_view.menus.RecyclerActivity" >
+
+            <!-- Parent activity meta-data to suppor0 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cristina.tfgapp.controller_view.menus.RecyclerActivity" />
+        </activity>
+        <activity
+            android:name="com.example.cristina.tfgapp.controller_view.settings.BracManActivity"
+            android:parentActivityName="com.example.cristina.tfgapp.controller_view.MainActivity" >
+
+            <!-- Parent activity meta-data to suppor0 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cristina.tfgapp.controller_view.MainActivity" />
+        </activity>
+        <activity android:name="org.achartengine.GraphicalActivity" />
+        <activity
+            android:name="com.example.cristina.tfgapp.charts.piecharts.PieChart"
+            android:parentActivityName="com.example.cristina.tfgapp.controller_view.menus.RecyclerActivity" >
+
+            <!-- Parent activity meta-data to suppor0 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cristina.tfgapp.controller_view.menus.RecyclerActivity" />
+        </activity>
+        <activity
+            android:name="com.example.cristina.tfgapp.charts.barcharts.RechargesChart"
+            android:parentActivityName="com.example.cristina.tfgapp.controller_view.menus.RecyclerActivity" >
+
+            <!-- Parent activity meta-data to suppor0 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cristina.tfgapp.controller_view.menus.RecyclerActivity" />
+        </activity>
+        <activity
+            android:name="com.example.cristina.tfgapp.charts.barcharts.PaymentsChart"
+            android:parentActivityName="com.example.cristina.tfgapp.controller_view.menus.RecyclerActivity" >
+
+            <!-- Parent activity meta-data to suppor0 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cristina.tfgapp.controller_view.menus.RecyclerActivity" />
+        </activity>
+        <activity
+            android:name="com.example.cristina.tfgapp.charts.linecharts.RechargesLineChart"
+            android:configChanges="orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:parentActivityName="com.example.cristina.tfgapp.charts.barcharts.RechargesChart" >
+
+            <!-- Parent activity meta-data to suppor0 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".charts.barcharts.RechargesChart" />
+        </activity>
+        <activity
+            android:name="com.example.cristina.tfgapp.charts.linecharts.PaymentsLineChart"
+            android:configChanges="orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:parentActivityName="com.example.cristina.tfgapp.charts.barcharts.PaymentsChart" >
+
+            <!-- Parent activity meta-data to suppor0 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".charts.barcharts.PaymentsChart" />
+        </activity>
+        <activity
+            android:name="com.example.cristina.tfgapp.charts.barcharts.FinancialBarChart"
+            android:parentActivityName="com.example.cristina.tfgapp.controller_view.menus.RecyclerActivity" >
+
+            <!-- Parent activity meta-data to suppor0 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cristina.tfgapp.controller_view.menus.RecyclerActivity" />
+        </activity>
+        <activity
+            android:name="com.example.cristina.tfgapp.charts.linecharts.FinancialLineChart"
+            android:configChanges="orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:parentActivityName="com.example.cristina.tfgapp.charts.barcharts.FinancialBarChart" >
+
+            <!-- Parent activity meta-data to suppor0 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".charts.barcharts.FinancialBarChart" />
+        </activity>
+        <activity
+            android:name="com.example.cristina.tfgapp.controller_view.settings.AddTagActivity"
+            android:configChanges="orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:parentActivityName="com.example.cristina.tfgapp.controller_view.settings.BracManActivity" >
+
+            <!-- Parent activity meta-data to suppor0 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cristina.tfgapp.controller_view.settings.BracManActivity" />
+        </activity>
+        <activity
+            android:name="com.example.cristina.tfgapp.controller_view.settings.DeleteTagActivity"
+            android:configChanges="orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:parentActivityName="com.example.cristina.tfgapp.controller_view.settings.BracManActivity" >
+
+            <!-- Parent activity meta-data to suppor0 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cristina.tfgapp.controller_view.settings.BracManActivity" />
+        </activity>
+        <activity
+            android:name="com.example.cristina.tfgapp.controller_view.settings.RechargeBalanceActivity"
+            android:configChanges="orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:parentActivityName="com.example.cristina.tfgapp.controller_view.menus.MenuActivity" >
+
+            <!-- Parent activity meta-data to suppor0 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.cristina.tfgapp.controller_view.menus.MenuActivity" />
+        </activity>
+
+        <provider
+            android:name="com.android.tools.ir.server.InstantRunContentProvider"
+            android:authorities="com.example.cristina.tfgapp.com.android.tools.ir.server.InstantRunContentProvider"
+            android:multiprocess="true" />
+    </application>
+
+</manifest>
