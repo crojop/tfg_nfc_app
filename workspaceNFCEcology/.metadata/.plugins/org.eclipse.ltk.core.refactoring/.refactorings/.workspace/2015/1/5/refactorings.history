@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename Java project &apos;NFCLearnTracker&apos; to &apos;NFCEcology&apos;&#x0A;- Original element: &apos;NFCLearnTracker&apos;&#x0A;- Renamed element: &apos;NFCLearnTracker&apos;&#x0A;- Update references to refactored element" description="Rename Java project &apos;NFCLearnTracker&apos;" flags="7" id="org.eclipse.jdt.ui.rename.java.project" input="=NFCLearnTracker" name="NFCEcology" references="true" stamp="1422292235562" version="1.0"/>
+</session>

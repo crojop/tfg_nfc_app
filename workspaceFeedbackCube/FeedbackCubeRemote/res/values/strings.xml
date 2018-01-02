@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Feedback Cube Remote</string>
+    <string name="menu_settings">Settings</string>
+    <string name="intro_message">Bernardo Tabuenca</string>
+    
+    <string name="move_sampler">Select sampler to overwrite:</string>
+    <string name="rename_sampler">MySampler</string>
+    
+    
+    <string name="samplerconfig">Sampler configuration</string>
+    <string name="jukebox_button_A">A</string>
+    <string name="jukebox_button_B">B</string>
+    <string name="jukebox_button_C">C</string>
+    <string name="jukebox_button_D">D</string>
+    <string name="jukebox_button_E">E</string>
+    <string name="jukebox_button_F">F</string>
+    <string name="jukebox_button_G">G</string>
+    <string name="jukebox_button_H">H</string>
+    <string name="jukebox_button_I">I</string>
+    <string name="jukebox_button_J">J</string>
+    
+    <string name="tab_jb">Jukebox</string>
+    <string name="tab_vi">Visual</string>
+    <string name="tab_au">Audio</string>
+    <string name="tab_ef">Effects</string>
+
+    <!-- Radio buttons -->    
+    <string name="rb_rainbow">rainbow</string>
+    <string name="rb_rainbow_circle">circle</string>
+    <string name="rb_fade">fade</string>
+    
+    <string name="rb_beep">beep</string>
+    <string name="rb_melody">melody</string>
+    
+    <string name="rb_fully">fully</string>
+    <string name="rb_partly">partly</string>    
+    
+    
+
+</resources>

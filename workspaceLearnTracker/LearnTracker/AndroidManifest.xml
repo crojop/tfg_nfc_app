@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.ounl.lifelonglearninghub.learntracker.gis.ou"
+    android:versionCode="11"
+    android:versionName="v11" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="11" />
+
+	<uses-permission android:name="android.permission.INTERNET" />
+	
+<!--  	
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+-->	
+	  
+
+    <application
+        android:allowBackup="true"
+        android:alwaysRetainTaskState="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:launchMode="singleInstance"
+        android:screenOrientation="nosensor"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="org.ounl.lifelonglearninghub.learntracker.gis.ou.LoadingScreenActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- Handle notes detected from outside our application -->
+            <intent-filter>
+                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="org.ounl.lifelonglearninghub.learntracker.gis.ou.swipe.SubjectsActivity"
+            android:label="@string/app_name" />        
+        <activity
+            android:name="org.ounl.lifelonglearninghub.learntracker.gis.ou.swipe.MainActivity"
+            android:label="@string/app_name" />        
+        <activity
+            android:name="org.ounl.lifelonglearninghub.learntracker.gis.ou.swipe.TimeLineActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="org.ounl.lifelonglearninghub.learntracker.gis.ou.db.charts.PieChartActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="org.ounl.lifelonglearninghub.learntracker.gis.ou.db.CreateGoalActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="org.ounl.lifelonglearninghub.learntracker.gis.ou.db.ViewGoalActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name="org.achartengine.GraphicalActivity"
+            android:label="@string/app_name" />
+    </application>
+
+</manifest>

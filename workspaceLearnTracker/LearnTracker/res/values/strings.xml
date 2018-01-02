@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LearnTacker</string>
+    <string name="menu_settings">Settings</string>
+    <string name="intro_message">Open Universiteit. 2016</string>
+    <string name="piechart">pie</string>
+    <string name="stackedchart">stacked</string>
+    <string name="linechart">line</string>
+    <string name="scatterchart">scatter</string>
+    <string name="socialchart">social</string>
+    <string name="doughnutchart">doughnut</string>    
+
+</resources>

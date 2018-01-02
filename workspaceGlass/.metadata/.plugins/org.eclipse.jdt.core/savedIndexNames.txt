@@ -1,0 +1,4 @@
+INDEX VERSION 1.126+/Users/BTB/Projects/workspaceGlass/.metadata/.plugins/org.eclipse.jdt.core
+3502941520.index
+4231447405.index
+3764541265.index

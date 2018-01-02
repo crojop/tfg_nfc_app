@@ -1,0 +1,395 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff" >
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="#ffffff"
+        tools:context=".DisplayData" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/buttonResetTable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onClickResetGoals"
+                    android:text="Reset goals" />
+
+                <Button
+                    android:id="@+id/buttonResetFeedback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Reset feedback" />
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/buttonON"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onClickON"
+                    android:text="ON" />
+
+                <Button
+                    android:id="@+id/buttonOFF"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onClickOFF"
+                    android:text="OFF" />
+            </LinearLayout>            
+            
+            <!-- check in -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F7F692"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="On check-in"
+                    android:textColor="#000000"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Taping to start"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/buttonA"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onClickButton"
+                    android:tag="@string/jukebox_button_A"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Reaching foreseen time"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/buttonB"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onClickButton"
+                    android:tag="@string/jukebox_button_B"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="X mins before reaching foreseen time"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/buttonD"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onClickButton"
+                    android:tag="@string/jukebox_button_D"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="X mins after reaching foreseen time"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/buttonE"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onClickButton"
+                    android:tag="@string/jukebox_button_E"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <!-- Reach goal deadline in days -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F7F692"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="On finish gaol"
+                    android:textColor="#000000"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Reach scheduled date"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/buttonF"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onClickButton"
+                    android:tag="@string/jukebox_button_F"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <!-- check out -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F7F692"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="On check-out"
+                    android:textColor="#000000"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tapping to stop"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/buttonC"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onClickButton"
+                    android:tag="@string/jukebox_button_C"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Accomplished all goals for a day"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/buttonH"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onClickButton"
+                    android:tag="@string/jukebox_button_H"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <!-- On apporach -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F7F692"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="On approach"
+                    android:textColor="#000000"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sitting at workplace"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/buttonG"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onClickButton"
+                    android:tag="@string/jukebox_button_G"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <!-- Move away -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F7F692"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="On move away"
+                    android:textColor="#000000"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Standing out of the workplace"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/buttonI"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onClickButton"
+                    android:tag="@string/jukebox_button_I"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <!-- On summarize -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#F7F692"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_horizontal"
+                    android:text="Summarizing"
+                    android:textColor="#000000"
+                    android:textSize="20dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="At summary time 21:30"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
+
+                <Button
+                    android:id="@+id/buttonJ"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:onClick="onClickButton"
+                    android:tag="@string/jukebox_button_J"
+                    android:textSize="20dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+</ScrollView>

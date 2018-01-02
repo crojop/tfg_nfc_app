@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="CleanDialogSettings">
+		<item value="484" key="DIALOG_WIDTH"/>
+		<item value="false" key="TOGGLE_SELECTED"/>
+		<item value="354" key="DIALOG_HEIGHT"/>
+		<item value="291" key="DIALOG_X_ORIGIN"/>
+		<item value="118" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="280" key="DIALOG_X_ORIGIN"/>
+		<item value="168" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog">
+		<item value="true" key="ShowStatusLine"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;History&gt;&#x0A;&lt;historyRootNode&gt;&#x0A;&lt;infoNode path=&quot;/NFCEcology/src/org/ounl/lifelonglearninghub/nfcecology/scheduler/SampleAlarmReceiver.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/NFCEcology/src/org/ounl/lifelonglearninghub/nfcecology/fcube/Constants.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/NFCEcology/src/org/ounl/lifelonglearninghub/nfcecology/fcube/commands/FCBeep.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/NFCEcology/src/org/ounl/lifelonglearninghub/nfcecology/fcube/commands/FCColor.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/NFCEcology/src/org/ounl/lifelonglearninghub/nfcecology/db/CreateGoalActivity.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/NFCEcology/src/org/ounl/lifelonglearninghub/nfcecology/db/tables/Tagctivity.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/NFCEcology/AndroidManifest.xml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/NFCEcology/src/org/ounl/lifelonglearninghub/nfcecology/db/ViewGoalActivity.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/NFCEcology/res/layout/activity_goal.xml&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/NFCEcology/src/org/ounl/lifelonglearninghub/nfcecology/db/DatabaseHandler.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/NFCEcology/src/org/ounl/lifelonglearninghub/nfcecology/MainActivity.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;infoNode path=&quot;/NFCEcology/src/org/ounl/lifelonglearninghub/nfcecology/fcube/config/FeedbackCubeConfig.java&quot; type=&quot;1&quot;/&gt;&#x0A;&lt;/historyRootNode&gt;&#x0A;&lt;/History&gt;" key="History"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0A;&lt;workingSet workingSetName=&quot;&quot;/&gt;" key="WorkingSet"/>
+		<item value="false" key="ShowDerived"/>
+		<section name="DialogBoundsSettings">
+			<item value="600" key="DIALOG_WIDTH"/>
+			<item value="1|.Helvetica Neue DeskInterface|11.0|0|COCOA|1|.HelveticaNeueDeskInterface-Regular" key="DIALOG_FONT_NAME"/>
+			<item value="500" key="DIALOG_HEIGHT"/>
+			<item value="212" key="DIALOG_X_ORIGIN"/>
+			<item value="0" key="DIALOG_Y_ORIGIN"/>
+		</section>
+	</section>
+</section>

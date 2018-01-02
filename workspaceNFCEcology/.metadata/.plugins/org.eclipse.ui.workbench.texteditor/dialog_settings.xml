@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="Number of items" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="number of items"/>
+			<item value="CHECKIN"/>
+			<item value="update"/>
+			<item value="startacti"/>
+			<item value="button"/>
+			<item value="reset goals"/>
+			<item value="fff"/>
+			<item value="android:textSize=&quot;20dp&quot; /&gt;"/>
+		</list>
+		<list key="replacehistory">
+			<item value="android:textSize=&quot;16dp&quot; /&gt;&#x0A;&#x0A;                &lt;Button&#x0A;                    android:id=&quot;@+id/butt"/>
+			<item value="nfcecology"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="671" key="DIALOG_WIDTH"/>
+		<item value="1|.Helvetica Neue DeskInterface|11.0|0|COCOA|1|.HelveticaNeueDeskInterface-Regular" key="DIALOG_FONT_NAME"/>
+		<item value="711" key="DIALOG_HEIGHT"/>
+		<item value="1412" key="DIALOG_X_ORIGIN"/>
+		<item value="288" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

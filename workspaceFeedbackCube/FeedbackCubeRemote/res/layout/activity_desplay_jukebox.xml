@@ -1,0 +1,148 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="top"
+    android:background="#333333"
+    tools:context=".DisplayData" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/buttonA"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:textColor="#dddddd"
+                android:textSize="30dp"
+                android:onClick="onClickButton"
+                android:tag="@string/jukebox_button_A"/>
+
+            <Button
+                android:id="@+id/buttonB"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:textColor="#dddddd"
+				android:textSize="30dp"
+				android:onClick="onClickButton" 
+				android:tag="@string/jukebox_button_B"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/buttonC"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:textColor="#dddddd"
+                android:textSize="30dp"
+                android:onClick="onClickButton"
+                android:tag="@string/jukebox_button_C" />
+
+            <Button
+                android:id="@+id/buttonD"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:textColor="#dddddd"
+				android:textSize="30dp"
+				android:onClick="onClickButton"
+				android:tag="@string/jukebox_button_D" />
+
+        </LinearLayout>
+        
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/buttonE"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:textColor="#dddddd"
+                android:textSize="30dp"
+                android:onClick="onClickButton"
+                android:tag="@string/jukebox_button_E"/>
+
+            <Button
+                android:id="@+id/buttonF"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:textColor="#dddddd"
+				android:textSize="30dp"
+				android:onClick="onClickButton"
+				android:tag="@string/jukebox_button_F"/>
+
+        </LinearLayout>        
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/buttonG"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:textColor="#dddddd"
+                android:textSize="30dp"
+                android:onClick="onClickButton"
+                android:tag="@string/jukebox_button_G" />
+
+            <Button
+                android:id="@+id/buttonH"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:textColor="#dddddd"
+				android:textSize="30dp"  
+				android:onClick="onClickButton"
+				android:tag="@string/jukebox_button_H" />
+
+        </LinearLayout>        
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <Button
+                android:id="@+id/buttonI"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:textColor="#dddddd"
+                android:textSize="30dp"
+                android:onClick="onClickButton"
+                android:tag="@string/jukebox_button_I" />
+
+            <Button
+                android:id="@+id/buttonJ"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:textColor="#dddddd"
+				android:textSize="30dp"  
+				android:onClick="onClickButton"
+				android:tag="@string/jukebox_button_J" />
+
+        </LinearLayout>         
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llCheckItemWrapper"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/white"
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/llCheckItemRow"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/imageViewStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/start_50x" />
+
+        <TextView
+            android:id="@+id/textViewTimeStamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Text"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#bbbbbb" />
+
+        <TextView
+            android:id="@+id/textViewDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="Text"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#cc510e" />
+
+        <ImageView
+            android:id="@+id/imageViewDelete"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:onClick="onClickDeleteActivity"
+            android:src="@drawable/delete_95x50" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,60 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="top"
+    tools:context=".DisplayData" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+           <ImageView
+                android:id="@+id/ivScatterChart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/graybtn_scat" />
+           
+           <ImageView
+                android:id="@+id/ivPieChart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/graybtn_pie" />           
+<!--                        
+            <Button
+                android:id="@+id/bScatt"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#E05904"
+                android:text="Scatter chart" />
+
+            <Button
+                android:id="@+id/bPie"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#E05904"
+                android:text="Pie chart"/>
+ -->
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/listviewGoals"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"      
+            android:layout_gravity="center_horizontal"      
+            android:background="@android:color/white" />
+
+
+    </LinearLayout>
+
+</FrameLayout>

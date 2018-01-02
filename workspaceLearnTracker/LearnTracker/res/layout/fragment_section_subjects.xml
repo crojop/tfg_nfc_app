@@ -1,0 +1,84 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_gravity="top"
+    tools:context=".DisplayData" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical" >
+
+       <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+           <ImageView
+                android:id="@+id/imageButtonBars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="@string/stackedchart"
+                android:onClick="onClickChart"
+                android:src="@drawable/graybtn_spot" />
+
+
+            <ImageView
+                android:id="@+id/imageButtonPie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="@string/piechart"
+                android:onClick="onClickChart"
+                android:src="@drawable/graybtn_pie" />
+
+<!--  
+            <ImageView
+                android:id="@+id/imageButtonDoughnut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:tag="@string/doughnutchart"
+                android:onClick="onClickChart"
+                android:src="@drawable/graybtn_doughnut" />            
+            
+           
+           <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickChart"
+                android:tag="@string/linechart"
+                android:src="@drawable/graybtn_spot" />
+
+           <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickChart"
+                android:tag="@string/socialchart"
+                android:src="@drawable/graybtn_circ" />
+                      
+           <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="onClickChart"
+                android:tag="@string/scatterchart"
+                android:src="@drawable/graybtn_scat" />   
+ -->                    
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/listviewSubjects"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/white" />
+
+    </LinearLayout>
+
+</FrameLayout>
