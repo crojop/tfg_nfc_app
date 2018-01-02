@@ -20,6 +20,8 @@
 
 *.class
 
+*.java
+
 
 
 # Archivos generados
