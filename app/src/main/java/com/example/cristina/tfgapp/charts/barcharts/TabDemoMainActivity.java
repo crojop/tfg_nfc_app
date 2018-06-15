@@ -9,12 +9,12 @@ import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TableLayout;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.cristina.tfgapp.controller_view.UtilsDate;
-import com.example.cristina.tfgapp.controller_view.login.LoginActivity;
+import com.example.cristina.tfgapp.controller_view.Utils;
 import com.example.cristina.tfgapp.controller_view.logs.Logs;
 import com.example.cristina.tfgapp.controller_view.logs.TableLogs;
 import com.example.cristina.tfgapp.controller_view.MainActivity;
@@ -25,6 +25,7 @@ import com.example.cristina.tfgapp.model.EventU;
 import com.example.cristina.tfgapp.model.TagU;
 import com.example.cristina.tfgapp.model.TerminalU;
 import com.example.cristina.tfgapp.model.TransactionU;
+import com.example.cristina.tfgapp.singleton.MyToastSingleton;
 
 import org.achartengine.ChartFactory;
 import org.achartengine.chart.BarChart;
@@ -40,13 +41,14 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.Callable;
 
 import static android.content.ContentValues.TAG;
 
 public class TabDemoMainActivity extends MenuActivity {
 
     //URL de get transacciones
-    private static final String URL_GET_TRANSACTIONS = "http://vpayment.perentec.com/API/V1/transactions?limit=100000&terminal_serial_number=";
+    private static final String QUERY_STRING_TRANSACTIONS = "?terminal_serial_number=";
     //Código de éxito
     private static final String SUCCESS_CODE = "000";
     //Parte del query string correspondiente al código del tag
@@ -90,14 +92,18 @@ public class TabDemoMainActivity extends MenuActivity {
     protected void getStats (){
         JsonObjectRequest jsArrayRequest = new JsonObjectRequest(
                 Request.Method.GET,
-                URL_GET_TRANSACTIONS+ LoginActivity.terminalU.getTerminal_serial_number()+QUERY_STRING_TAG+ MainActivity.currentTag.getTag_code(),
+                getString(R.string.URL_TRANSACTIONS)+QUERY_STRING_TRANSACTIONS+ MainActivity.terminalU.getTerminal_serial_number()+QUERY_STRING_TAG+ MainActivity.currentTag.getTag_code()+"&token="+Utils.decryptSth(getSharedPreferences(getString(R.string.shar_prefs_name), MODE_PRIVATE).getString(getString(R.string.shar_prefs_token), "")),
                 null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        //Ha habido éxito
-                        gatherData(response);
-                        getMaxY();
+                        if (gatherData(response).equals(getString(R.string.VAL_SUCCESS))){
+                            //Ha habido éxito
+                            gatherData(response);
+                            getMaxY();
+                        } else if (gatherData(response).equals(getString(R.string.VAL_ERROR))){
+                            MyToastSingleton.getInstance(TabDemoMainActivity.this).setError(getString(R.string.error_charging_stats));
+                        }
                         if (arrayDates.length!=0)
                             drawChart();
                         else setContentView(R.layout.nodata_layout);
@@ -108,8 +114,15 @@ public class TabDemoMainActivity extends MenuActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         //No ha habido éxito
-                        pDialog.dismiss(); //que no se cierre el diálogo to do el rato y se abra
                         Log.d(getString(R.string.error), getString(R.string.errorJsonResponse) + error.getMessage());
+                        if (error.getClass().equals(AuthFailureError.class)) {
+                            Utils.changeToken(TabDemoMainActivity.this, new Callable<String>() {
+                                public String call() {
+                                    getStats();
+                                    return null;
+                                }
+                            });
+                        } else pDialog.dismiss(); //que no se cierre el diálogo to do el rato y se abra
                     }
                 }
         );
@@ -127,10 +140,11 @@ public class TabDemoMainActivity extends MenuActivity {
     pago y con signo positivo si se trata de una recarga).
     4. Se llama a la función orderByDayD que ordena el array list de DateElement
     */
-    protected void gatherData (JSONObject jsonObject){
+    protected String gatherData (JSONObject jsonObject){
+        String result = getString(R.string.VAL_ERROR);
         try {
             //Si to do ha ido bien
-            if (jsonObject.getString(getString(R.string.code)).equals(SUCCESS_CODE)) {
+            if (jsonObject.getString(getString(R.string.code)).equals(getString(R.string.CODE_SUCCESSS))) {
                 JSONArray jsonArray = jsonObject.getJSONArray(getString(R.string.data));
                 ArrayList<TransactionU> transactionUArrayList = new ArrayList<TransactionU>(){};
                 ArrayList<DateElement> dateElementArrayList = new ArrayList<DateElement>(){};
@@ -142,7 +156,7 @@ public class TabDemoMainActivity extends MenuActivity {
                         TerminalU terminalU = new TerminalU(objeto.getInt(getString(R.string.terminal_serial_number)));
                         TransactionU transactionU = new TransactionU(objeto.getInt(getString(R.string.transactiontype_id)),
                                 objeto.getDouble(getString(R.string.transaction_amount)),eventU,tagU,terminalU);
-                        transactionU.setDateInMilliseconds(UtilsDate.stringToMillisecondsNew(objeto.getString(getString(R.string.transaction_date)), UtilsDate.PATTERN_DATE_WEB_SERVICE));
+                        transactionU.setDateInMilliseconds(Utils.stringToMillisecondsNew(objeto.getString(getString(R.string.transaction_date)), Utils.PATTERN_DATE_WEB_SERVICE));
                         transactionUArrayList.add(transactionU);
                     } catch (JSONException e) {
                         Log.e(TAG, getString(R.string.parsingError)+ e.getMessage());
@@ -152,14 +166,16 @@ public class TabDemoMainActivity extends MenuActivity {
                 Arrays.sort(arrayTransactionsU);
                 for (TransactionU transactionU : arrayTransactionsU){
                     double amount = (transactionU.getTransactiontype_id()==TransactionU.TRANSACTION_PAYMENT) ? -transactionU.getTransaction_amount() : transactionU.getTransaction_amount();
-                    DateElement dateElement = new DateElement(UtilsDate.chainDateShort(transactionU.getDateInMilliseconds()), amount);
+                    DateElement dateElement = new DateElement(Utils.chainDateShort(transactionU.getDateInMilliseconds()), amount);
                     dateElementArrayList.add(dateElement);
                 }
                 orderByDayD(dateElementArrayList);
+                result = getString(R.string.VAL_SUCCESS);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        return result;
     }
 
     /*

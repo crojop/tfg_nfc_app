@@ -7,14 +7,18 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.cristina.tfgapp.controller_view.MainActivity;
+import com.example.cristina.tfgapp.controller_view.Utils;
+import com.example.cristina.tfgapp.controller_view.settings.SettingsActivity;
 import com.example.cristina.tfgapp.singleton.MyRequestQueueSingleton;
 import com.example.cristina.tfgapp.R;
-import com.example.cristina.tfgapp.controller_view.login.LoginActivity;
 import com.example.cristina.tfgapp.charts.AbstractChart;
+import com.example.cristina.tfgapp.singleton.MyToastSingleton;
 
 import org.achartengine.ChartFactory;
 import org.achartengine.chart.PointStyle;
@@ -26,6 +30,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.concurrent.Callable;
+
 import static android.content.ContentValues.TAG;
 
 /**
@@ -34,8 +40,7 @@ import static android.content.ContentValues.TAG;
 
 public abstract class AbstractLineChart extends AbstractChart {
     //Activity que genera gráficos de línea. De ella heredan LineChartExample y FinancialLineChart
-    protected static final String SUCCESS_CODE = "000";
-    private static final String URL_GET_STATS = "http://vpayment.perentec.com/API/V1/stats";
+
     private static final String QUERY_STRING_TER_NUM = "?terminal_serial_number=";
     private static final String QUERY_STRING_DAY = "&day=";
     protected String day;//fecha a representar. Llega como extra de la bar chart activity
@@ -134,9 +139,10 @@ public abstract class AbstractLineChart extends AbstractChart {
     A medida que lee el objeto json, almacena las cantidades: ingresos por hora, o bien pagos o recargas realizadas por hora.
     Las va insertando en un array que tiene 24 posiciones, que se corresponden con las horas.
      */
-    protected void gatherData (JSONObject jsonObject){
+    protected String gatherData (JSONObject jsonObject){
+        String result = getString(R.string.VAL_ERROR);
         try {
-            if (jsonObject.getString(getString(R.string.code)).equals(SUCCESS_CODE)) {
+            if (jsonObject.getString(getString(R.string.code)).equals(getString(R.string.CODE_SUCCESSS))) {
                 JSONArray jsonArray = jsonObject.getJSONArray(getString(R.string.data));
                 for(int i=0; i<jsonArray.length(); i++){
                     try {
@@ -146,10 +152,12 @@ public abstract class AbstractLineChart extends AbstractChart {
                         Log.e(TAG, getString(R.string.parsingError)+ e.getMessage());
                     }
                 }
+                result = getString(R.string.VAL_SUCCESS);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        return result;
     }
     protected abstract double getNumberArrayHours(JSONObject objeto);
 
@@ -160,23 +168,33 @@ public abstract class AbstractLineChart extends AbstractChart {
     protected void getStats (final String graph_title, final int graph_color, final String graph_legend){
         JsonObjectRequest jsArrayRequest = new JsonObjectRequest(
                 Request.Method.GET,
-                URL_GET_STATS+QUERY_STRING_TER_NUM+ LoginActivity.terminalU.getTerminal_serial_number()+QUERY_STRING_DAY+day+getQueryStringCont(),
+                getString(R.string.URL_STATS)+QUERY_STRING_TER_NUM+ MainActivity.terminalU.getTerminal_serial_number()+QUERY_STRING_DAY+day+getQueryStringCont()+getTokenCont(),
                 null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        gatherData(response);
+                    if (gatherData(response).equals(getString(R.string.VAL_SUCCESS))){
                         getMaxY();
                         normalize();
                         drawChart(graph_title, graph_color, graph_legend);
-                        pDialog.dismiss(); //que no se cierre el diálogo to do el rato y se abra
+                    } else if (gatherData(response).equals(getString(R.string.VAL_ERROR))){
+                        MyToastSingleton.getInstance(AbstractLineChart.this).setError(getString(R.string.error_charging_stats));
+                    }
+                    pDialog.dismiss(); //que no se cierre el diálogo to do el rato y se abra
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        pDialog.dismiss(); //que no se cierre el diálogo to do el rato y se abra
                         Log.d(getString(R.string.error), getString(R.string.errorJsonResponse) + error.getMessage());
+                        if (error.getClass().equals(AuthFailureError.class)) {
+                            Utils.changeToken(AbstractLineChart.this, new Callable<String>() {
+                                public String call() {
+                                    getStats(graph_title, graph_color, graph_legend);
+                                    return null;
+                                }
+                            });
+                        } else pDialog.dismiss(); //que no se cierre el diálogo to do el rato y se abra
                     }
                 }
         );

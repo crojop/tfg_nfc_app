@@ -24,4 +24,13 @@
         <item name="searchHintIcon">@drawable/searchi</item>
     </style>
 
+    <style name="requiredInput">
+        <!-- Hint color and label color in FALSE state -->
+        <item name="android:textColorHint">@color/colorRed</item>
+        <!-- Label color in TRUE state and bar color FALSE and TRUE State -->
+        <item name="colorAccent">@color/colorRed</item>
+        <item name="colorControlNormal">@color/colorRed</item>
+        <item name="colorControlActivated">@color/colorRed</item>
+    </style>
+
 </resources>

@@ -1,8 +1,11 @@
 package com.example.cristina.tfgapp.charts.barcharts;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Base64;
 
 import com.example.cristina.tfgapp.R;
+import com.example.cristina.tfgapp.controller_view.Utils;
 import com.example.cristina.tfgapp.model.Statistic;
 import com.example.cristina.tfgapp.charts.linecharts.FinancialLineChart;
 

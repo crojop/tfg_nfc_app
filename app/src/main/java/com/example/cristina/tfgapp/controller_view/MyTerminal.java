@@ -1,9 +1,11 @@
 package com.example.cristina.tfgapp.controller_view;
 
 import android.app.ActionBar;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.cristina.tfgapp.R;
 import com.example.cristina.tfgapp.controller_view.login.LoginActivity;
 
 /**
@@ -20,13 +22,10 @@ De ella heredan todas las clases del navigation drawer y la main activity, que s
         initializeTerminalAppBar();
     }
     public final void initializeTerminalAppBar (){
-        if (LoginActivity.terminalU!=null){
-            setTitle(LoginActivity.terminalU.getEventU().getEvent_description() + " " +
-                    LoginActivity.terminalU.getTerminal_description());
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-            getSupportActionBar().setDisplayOptions(getSupportActionBar().getDisplayOptions()
-                    | ActionBar.DISPLAY_SHOW_CUSTOM);
-        }
+        SharedPreferences sharedPreferences = getSharedPreferences(getString(R.string.shar_prefs_name), MODE_PRIVATE);
+        setTitle(sharedPreferences.getString(getString(R.string.shar_prefs_event_description), getString(R.string.unknown_event)) + " " + sharedPreferences.getString(getString(R.string.shar_prefs_terminal_description), getString(R.string.unknown_term_desc)));
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayOptions(getSupportActionBar().getDisplayOptions() | ActionBar.DISPLAY_SHOW_CUSTOM);
     }
 
 }

@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 
 import com.example.cristina.tfgapp.R;
 import com.example.cristina.tfgapp.controller_view.MyTerminal;
+import com.example.cristina.tfgapp.controller_view.Utils;
 
 import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.model.XYSeries;
@@ -124,5 +125,9 @@ public abstract class AbstractChart extends MyTerminal {
         multiRenderer.addSeriesRenderer(renderer);
         chartContainer = (LinearLayout) findViewById(R.id.chart_container);
         if (remove) chartContainer.removeAllViews();
+    }
+
+    protected String getTokenCont(){
+        return "&token="+ Utils.decryptSth(getSharedPreferences(getString(R.string.shar_prefs_name), MODE_PRIVATE).getString(getString(R.string.shar_prefs_token), ""));
     }
 }

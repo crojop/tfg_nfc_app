@@ -11,15 +11,17 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextWatcher;
 import android.text.method.DigitsKeyListener;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.cristina.tfgapp.controller_view.login.LoginActivity;
+import com.example.cristina.tfgapp.controller_view.Utils;
 import com.example.cristina.tfgapp.controller_view.MainActivity;
 import com.example.cristina.tfgapp.controller_view.menus.MenuActivity;
 import com.example.cristina.tfgapp.singleton.MyRequestQueueSingleton;
@@ -27,7 +29,10 @@ import com.example.cristina.tfgapp.R;
 import com.example.cristina.tfgapp.model.TransactionU;
 import com.example.cristina.tfgapp.singleton.MyToastSingleton;
 
+import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.concurrent.Callable;
 
 /**
  * Created by Cristina on 30/11/17.
@@ -44,11 +49,11 @@ public class RechargeBalanceActivity extends MenuActivity {
     private TextView textViewCurrentBalance;
     //Botón de recarga de saldo
     private Button buttonRechargeBalance;
-    //URL del web service
-    private static final String URL_TRANSACTIONS = "http://vpayment.perentec.com/API/V1/transactions";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_recharge_balance);
         textViewCurrentBalance = (TextView) findViewById(R.id.tv_currentBalance);
         textViewCurrentBalance.setText(String.valueOf(MainActivity.currentTag.getUser().getBalance())+getString(R.string.euro_divisa_symbol));
@@ -77,10 +82,10 @@ public class RechargeBalanceActivity extends MenuActivity {
         buttonRechargeBalance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Si no está vacío el campo de entrada, y no contiene ningún error, se procede con el proceso de recarga
-                if (inputQuantity.getError()==null && !inputQuantity.getEditText().getText().toString().isEmpty()) {
-                    showAlert();
-                }
+            //Si no está vacío el campo de entrada, y no contiene ningún error, se procede con el proceso de recarga
+            if (inputQuantity.getError()==null && !inputQuantity.getEditText().getText().toString().isEmpty()) {
+                showAlert();
+            }
             }
         });
     }
@@ -146,11 +151,11 @@ public class RechargeBalanceActivity extends MenuActivity {
         AlertDialog alertDialog = new AlertDialog.Builder(RechargeBalanceActivity.this)
                 .setTitle(getString(R.string.balanceRecharge))
                 .setMessage(getString(R.string.messageAlertRechargeBalance1)+ " " + inputQuantity.getEditText().getText().toString() + " " + getString(R.string.euro_divisa_symbol) + getString(R.string.messageAlertRechargeBalance2))
-                .setIcon(getDrawable(R.drawable.piggybank128))
+                .setIcon(this.getResources().getDrawable(R.drawable.piggybank128))
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         TransactionU transactionU = new TransactionU(TransactionU.TRANSACTION_RECHARGE, Double.parseDouble(inputQuantity.getEditText().getText().toString()),
-                                LoginActivity.terminalU.getEventU(), MainActivity.currentTag, LoginActivity.terminalU);
+                                MainActivity.terminalU.getEventU(), MainActivity.currentTag, MainActivity.terminalU);
                         rechargeBalance(transactionU);
                     }
                 })
@@ -172,24 +177,28 @@ public class RechargeBalanceActivity extends MenuActivity {
             request.put(getString(R.string.terminal_serial_number), transactionU.getTerminalU().getTerminal_serial_number());
             request.put(getString(R.string.tag_code), transactionU.getTagU().getTag_code());
             request.put(getString(R.string.transaction_amount), transactionU.getTransaction_amount());
+            request.put(getString(R.string.token), Utils.decryptSth(getSharedPreferences(getString(R.string.shar_prefs_name), MODE_PRIVATE).getString(getString(R.string.shar_prefs_token), "")));
         }
         catch(Exception e)
         {
             e.printStackTrace();
         }
-        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, URL_TRANSACTIONS,request,
+        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, getString(R.string.URL_TRANSACTIONS),request,
                 new Response.Listener<JSONObject>()
                 {
                     @Override
                     public void onResponse(JSONObject response) {
-                        /*Si ha habido éxito se muestra toast informando de que to do ha ido bien,
-                        se actualiza el saldo del usuario en el objeto currentTag, y se dirige al usuario a la activity del menú,
-                        */
-                        MyToastSingleton.getInstance(RechargeBalanceActivity.this, RechargeBalanceActivity.this).
-                                setSuccess(getString(R.string.successRechargeBalance));
-                        MainActivity.currentTag.getUser().setBalance(MainActivity.currentTag.getUser().getBalance()+transactionU.getTransaction_amount());
-                        Intent intent = new Intent(RechargeBalanceActivity.this, MenuActivity.class);
-                        startActivity(intent);
+                        if (validateResponse(response).equals(getString(R.string.VAL_ERROR))){
+                            MyToastSingleton.getInstance(RechargeBalanceActivity.this).setError(getString(R.string.errorRechargeBalance));
+                        } else if (validateResponse(response).equals(getString(R.string.VAL_SUCCESS))){
+                            /*Si ha habido éxito se muestra toast informando de que to do ha ido bien,
+                            se actualiza el saldo del usuario en el objeto currentTag, y se dirige al usuario a la activity del menú,
+                            */
+                            MyToastSingleton.getInstance(RechargeBalanceActivity.this).setSuccess(getString(R.string.successRechargeBalance));
+                            MainActivity.currentTag.getUser().setBalance(MainActivity.currentTag.getUser().getBalance()+transactionU.getTransaction_amount());
+                            Intent intent = new Intent(RechargeBalanceActivity.this, MenuActivity.class);
+                            startActivity(intent);
+                        }
                     }
                 },
                 new Response.ErrorListener()
@@ -197,11 +206,29 @@ public class RechargeBalanceActivity extends MenuActivity {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         //Si no ha habido éxito se muestra mensaje de error
-                        MyToastSingleton.getInstance(RechargeBalanceActivity.this, RechargeBalanceActivity.this).
-                                setError(getString(R.string.errorRechargeBalance));
+                        if (error.getClass().equals(AuthFailureError.class)) {
+                            Utils.changeToken(RechargeBalanceActivity.this, new Callable<String>() {
+                                public String call() {
+                                    rechargeBalance(transactionU);
+                                    return null;
+                                }
+                            });
+                        } else MyToastSingleton.getInstance(RechargeBalanceActivity.this).setError(getString(R.string.errorRechargeBalance));
                     }
                 }
         );
         MyRequestQueueSingleton.getInstance(this).addToRequestQueue(postRequest);
+    }
+
+    private String validateResponse (JSONObject response){
+        String result = getString(R.string.VAL_ERROR);
+        try {
+            String code = response.getString(getString(R.string.code));
+            if(code.equals(getString(R.string.CODE_SUCCESSS))) result = getString(R.string.VAL_SUCCESS);
+        }
+        catch (JSONException e) {
+            Log.d(getString(R.string.error), getString(R.string.parsingError));
+        }
+        return result;
     }
 }

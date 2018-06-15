@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -20,7 +22,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.cunoraz.tagview.Constants;
 import com.cunoraz.tagview.Tag;
 import com.cunoraz.tagview.TagView;
-import com.example.cristina.tfgapp.controller_view.login.LoginActivity;
+import com.example.cristina.tfgapp.controller_view.Utils;
 import com.example.cristina.tfgapp.controller_view.MainActivity;
 import com.example.cristina.tfgapp.controller_view.menus.MenuActivity;
 import com.example.cristina.tfgapp.singleton.MyRequestQueueSingleton;
@@ -29,9 +31,11 @@ import com.example.cristina.tfgapp.model.Product;
 import com.example.cristina.tfgapp.model.TransactionU;
 import com.example.cristina.tfgapp.singleton.MyToastSingleton;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.concurrent.Callable;
 
 /**
  * Created by Cristina on 09/05/17.
@@ -46,7 +50,6 @@ public class BuyActivity extends MenuActivity {
     private ArrayList<Product> datos;
     private Button buttonContinueBuy;
     private TransactionU transactionU;
-    private static final String URL_TRANSACTIONS = "http://vpayment.perentec.com/API/V1/transactions";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,13 +75,13 @@ public class BuyActivity extends MenuActivity {
                     if (product.getAdded()>0) cartNotEmpty = true;
                 }
                 //Si el carrito está vacío muestra toast con alerta
-                if (!cartNotEmpty) MyToastSingleton.getInstance(BuyActivity.this, BuyActivity.this).
+                if (!cartNotEmpty) MyToastSingleton.getInstance(BuyActivity.this).
                         setError(getString(R.string.notProductsSelected));
                 /*Si no está vacío y tiene saldo suficiente llama a showAlert(), que muestra alerta de confirmación al usuario
                 antes de pagar, y si este la acepta, se procede a realizar el pago. */
                 else if (getDifference()>0) showAlert();
-                //Si no está vacío pero no tiene saldo suficiente muestra alerta
-                else MyToastSingleton.getInstance(BuyActivity.this, BuyActivity.this).
+                    //Si no está vacío pero no tiene saldo suficiente muestra alerta
+                else MyToastSingleton.getInstance(BuyActivity.this).
                             setError(getString(R.string.errorInsufficientBalance));
             }
         });
@@ -91,13 +94,13 @@ public class BuyActivity extends MenuActivity {
                 .setTitle(getString(R.string.payment))
                 .setMessage(getString(R.string.messageAlertPayment1) + " " + productsPrice + " " + getString(R.string.euro_divisa_symbol) +
                 getString(R.string.messageAlertPayment2))
-                .setIcon(getDrawable(R.drawable.payment_32))
+                .setIcon(this.getResources().getDrawable(R.drawable.payment_32))
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         //El usuario ha aceptado. Se procede a realizar el pago
                         for (Product product : datos){
                             if (product.getAdded()>0){
-                                MainActivity.prodDataBaseHelper.updateProduct(product.getAdded(), product.getId_product());
+                                MainActivity.prodDataBaseHelper.updateProduct(product.getAdded(), product.getId_product(), product.getName());
                                 /*
                                 Se actualiza la base de datos de productos sumándole la cantidad comprada de cada producto en este pago.
                                 Esto se hace para poder saber cuántas unidades se han comprado de cada producto, de cara a las estadísticas.
@@ -105,7 +108,7 @@ public class BuyActivity extends MenuActivity {
                             }
                         }
                         transactionU = new TransactionU(TransactionU.TRANSACTION_PAYMENT, productsPrice,
-                                LoginActivity.terminalU.getEventU(), MainActivity.currentTag, LoginActivity.terminalU);
+                                MainActivity.terminalU.getEventU(), MainActivity.currentTag, MainActivity.terminalU);
 
                         /*Se genera la variable global transactionU con los datos de la transacción y se llama al método pay,
                         que realizará el pago*/
@@ -130,32 +133,54 @@ public class BuyActivity extends MenuActivity {
             request.put(getString(R.string.terminal_serial_number), transactionU.getTerminalU().getTerminal_serial_number());
             request.put(getString(R.string.tag_code), transactionU.getTagU().getTag_code());
             request.put(getString(R.string.transaction_amount), transactionU.getTransaction_amount());
+            request.put(getString(R.string.token), Utils.decryptSth(getSharedPreferences(getString(R.string.shar_prefs_name), MODE_PRIVATE).getString(getString(R.string.shar_prefs_token), "")));
         }
         catch(Exception e)
         {
             e.printStackTrace();
         }
-        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, URL_TRANSACTIONS,request,
+        JsonObjectRequest postRequest = new JsonObjectRequest(Request.Method.POST, getString(R.string.URL_TRANSACTIONS),request,
                 new Response.Listener<JSONObject>()
                 {
                     @Override
                     public void onResponse(JSONObject response) {
-                        MyToastSingleton.getInstance(BuyActivity.this, BuyActivity.this).
-                                setSuccess(getString(R.string.successPayment));
+                    if (validateResponse(response).equals(getString(R.string.VAL_SUCCESS))){
+                        MyToastSingleton.getInstance(BuyActivity.this).setSuccess(getString(R.string.successPayment));
+                        MainActivity.currentTag.getUser().setBalance(Math.round((getUserBalance()-transactionU.getTransaction_amount())*100.0)/100.0);
                         Intent intent = new Intent(BuyActivity.this, MenuActivity.class);
                         startActivity(intent);
+                    } else if (validateResponse(response).equals(getString(R.string.VAL_ERROR))){
+                        MyToastSingleton.getInstance(BuyActivity.this).setError(getString(R.string.errorPayment));
+                    }
                     }
                 },
                 new Response.ErrorListener()
                 {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        MyToastSingleton.getInstance(BuyActivity.this, BuyActivity.this).
-                                setError(getString(R.string.errorPayment));
+                        if (error.getClass().equals(AuthFailureError.class)) {
+                            Utils.changeToken(BuyActivity.this, new Callable<String>() {
+                                public String call() {
+                                    pay();
+                                    return null;
+                                }
+                            });
+                        } else MyToastSingleton.getInstance(BuyActivity.this).setError(getString(R.string.errorPayment));
                     }
                 }
         );
         MyRequestQueueSingleton.getInstance(this).addToRequestQueue(postRequest);
+    }
+
+    private String validateResponse (JSONObject jsonObject){
+        String result=getString(R.string.VAL_ERROR);
+        try {
+            boolean error = jsonObject.getBoolean(this.getString(R.string.error));
+            if (!error) result = getString(R.string.VAL_SUCCESS);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return result;
     }
 
     /*Función que genera los tags o etiquetas con los nombres de los productos a comprar que se muestran en la activity

@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentFilter.MalformedMimeTypeException;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.database.sqlite.SQLiteDatabase;
 import android.nfc.NdefMessage;
@@ -27,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -36,6 +38,8 @@ import com.example.cristina.tfgapp.controller_view.logs.LogsActivity;
 import com.example.cristina.tfgapp.controller_view.menus.MenuActivity;
 import com.example.cristina.tfgapp.controller_view.menus.RecyclerActivity;
 import com.example.cristina.tfgapp.controller_view.settings.BracManActivity;
+import com.example.cristina.tfgapp.model.EventU;
+import com.example.cristina.tfgapp.model.TerminalU;
 import com.example.cristina.tfgapp.singleton.MyRequestQueueSingleton;
 import com.example.cristina.tfgapp.model.database.ProductDataBaseHelper;
 import com.example.cristina.tfgapp.R;
@@ -46,13 +50,15 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+import java.util.concurrent.Callable;
+
 
 
 public class MainActivity extends MyTerminal {
 
+    public static TerminalU terminalU;
     private static final String MIME_TEXT_PLAIN = "text/plain";
     private static final String TAG = "NfcDemo";
-    private static final String URL_GET_TAGS = "http://vpayment.perentec.com/API/V1/tags/";
 
     //currentTag almacena la información del tag nfc que está siendo leído
     public static TagU currentTag;
@@ -64,6 +70,8 @@ public class MainActivity extends MyTerminal {
     public static ProductDataBaseHelper prodDataBaseHelper;
 
     private NfcAdapter mNfcAdapter;
+
+    private String result;
 
     //Burguer icon
     private DrawerLayout mDrawerLayout;
@@ -80,6 +88,7 @@ public class MainActivity extends MyTerminal {
 
     private void selectItem(int position) {
         mDrawerList.setItemChecked(position, true);
+
         switch (position) {
             case 0:
                 //Estadísticas
@@ -100,6 +109,7 @@ public class MainActivity extends MyTerminal {
                 //Salir
                 Intent logOutIntent = new Intent(this, LoginActivity.class);
                 startActivity(logOutIntent);
+                finish();
                 break;
             default:
                 break;
@@ -144,8 +154,17 @@ public class MainActivity extends MyTerminal {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         currentTag = new TagU();
+        SharedPreferences loginPreferences = getSharedPreferences(getString(R.string.shar_prefs_name), MODE_PRIVATE);
+        String encrypted_password = loginPreferences.getString(getString(R.string.shar_prefs_password), "");
+        if (encrypted_password==null) {
+            Intent showLogin = new Intent(this, LoginActivity.class);
+            startActivity(showLogin);
+        }
+        terminalU = new TerminalU(loginPreferences.getInt(getString(R.string.terminal_serial_number), 0));
+        EventU eventU = new EventU(loginPreferences.getInt(getString(R.string.shar_prefs_event_id), 0), loginPreferences.getString(getString(R.string.shar_prefs_event_description), ""));
+        terminalU.setTerminal_description(loginPreferences.getString(getString(R.string.shar_prefs_terminal_description), ""));
+        terminalU.setEventU(eventU);
 
         //Código de prueba para limpiar la base de datos
 /*
@@ -155,8 +174,7 @@ public class MainActivity extends MyTerminal {
                 this.deleteDatabase(database);
             }
         }*/
-
-        prodDataBaseHelper = new ProductDataBaseHelper(this, getString(R.string.DBProd), null, 1);
+        prodDataBaseHelper = new ProductDataBaseHelper(this, "DBProducts", null, 1);
 
         arrayElementListDrawer = new ElementListDrawer[]{
                 new ElementListDrawer(getString(R.string.statistics), getResources().getIdentifier(getString(R.string.id_drawable_listdrawer_statistics), getString(R.string.drawable), getPackageName())),
@@ -197,13 +215,13 @@ public class MainActivity extends MyTerminal {
         mNfcAdapter = NfcAdapter.getDefaultAdapter(this);
         if (mNfcAdapter == null) {
             //Si no tiene lector nfc
-            MyToastSingleton.getInstance(this, this).setError(getString(R.string.no_nfc_support_in_device));
+            MyToastSingleton.getInstance(this).setError(getString(R.string.no_nfc_support_in_device));
             finish();
             return;
         }
         if (!mNfcAdapter.isEnabled()) {
             //Si lo tiene desactivado, muestra mensaje para que el usuario lo active
-            MyToastSingleton.getInstance(this, this).setError(getString(R.string.nfc_is_disabled));
+            MyToastSingleton.getInstance(this).setError(getString(R.string.nfc_is_disabled));
         } else {
             //mTextView.setText(R.string.explanation);
         }
@@ -288,9 +306,6 @@ public class MainActivity extends MyTerminal {
                     buffer[1] = Character.forDigit(tag.getId()[i] & 0x0F, 16);
                     stringBuilder.append(buffer);
                 }
-
-                Log.d("ID TAG", stringBuilder.toString());
-
                 new NdefReaderTask().execute(tag);
 
             } else {
@@ -311,6 +326,44 @@ public class MainActivity extends MyTerminal {
             }
         }
     }
+    public void validateTag () {
+        final JsonObjectRequest jsArrayRequest = new JsonObjectRequest(
+                //Con el método get pide información del código del tag que se ha leído
+                Request.Method.GET,
+                getString(R.string.URL_TAGS)+result+Utils.getToken(this),
+                null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                    if (TagU.validateTag(response, MainActivity.this).equals(getString(R.string.VAL_ERROR))){
+                        MyToastSingleton.getInstance(MainActivity.this).setError(getString(R.string.not_found_user));
+                    } else if (TagU.validateTag(response, MainActivity.this).equals(getString(R.string.VAL_SUCCESS))){
+                        /*Si es válido accede a MenuActivity, donde se muestran las distintas acciones
+                        que puede llevar a cabo el usuario */
+                        TagU.setTagU(response, MainActivity.this);
+                        Intent intentMenu = new Intent(getBaseContext(), MenuActivity.class);
+                        startActivity(intentMenu);
+                    }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        if (error.getClass().equals(AuthFailureError.class)) {
+                            Utils.changeToken(MainActivity.this, new Callable<String>() {
+                                public String call() throws AuthFailureError {
+                                    validateTag();
+                                    return null;
+                                }
+                            });
+                        }
+                        Log.d(TAG, getString(R.string.errorJsonResponse) + error.getLocalizedMessage());
+                    }
+                }
+        );
+        MyRequestQueueSingleton.getInstance(MainActivity.this).addToRequestQueue(jsArrayRequest);
+    }
+
 
     //Lee la pulsera nfc
     private class NdefReaderTask extends AsyncTask<Tag, Void, String> {
@@ -371,36 +424,8 @@ public class MainActivity extends MyTerminal {
         protected void onPostExecute(final String result) {
             //Recibe el texto que está almacenado de la pulsera nfc
             if (result != null) {
-                JsonObjectRequest jsArrayRequest;
-                jsArrayRequest = new JsonObjectRequest(
-                        //Con el método get pide información del código del tag que se ha leído
-                        Request.Method.GET,
-                        URL_GET_TAGS+result,
-                        null,
-                        new Response.Listener<JSONObject>() {
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                /*Se usa el método de la clase TagU para ver si el método get ha devuelto
-                                un tag válido para este evento o no */
-                                if (!TagU.validateTag(response, MainActivity.this))
-                                    //Dicho tag no existe, o no existe para el evento dado de alta en este terminal
-                                    MyToastSingleton.getInstance(MainActivity.this, MainActivity.this).
-                                            setError(getString(R.string.not_found_user));
-                                else {
-                                    //Si es válido accede a MenuActivity, donde se muestran las distintas acciones que puede llevar a cabo el usuario
-                                    Intent intentMenu = new Intent(getBaseContext(), MenuActivity.class);
-                                    startActivity(intentMenu);
-                                }
-                            }
-                        },
-                        new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                Log.d(TAG, getString(R.string.errorJsonResponse) + error.getMessage());
-                            }
-                        }
-                );
-                MyRequestQueueSingleton.getInstance(MainActivity.this).addToRequestQueue(jsArrayRequest);
+                MainActivity.this.result = result;
+                validateTag();
             }
         }
 

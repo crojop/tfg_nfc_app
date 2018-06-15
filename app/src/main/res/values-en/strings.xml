@@ -19,7 +19,7 @@
     <string name="action_sign_in">Log in</string>
     <string name="action_sign_in_short">Log in</string>
     <string name="error_invalid_tsn">Incorrect terminal serial number</string>
-    <string name="error_invalid_password">Too short password</string>
+    <string name="error_too_short_password">Too short password</string>
     <string name="error_incorrect_password">Incorrect password</string>
     <string name="error_field_required">Required field</string>
     <string name="permission_rationale">Contacts permissions are needed for providing email
@@ -121,6 +121,7 @@
     <string name="tag_code">tag_code</string>
     <string name="tag_description">tag_description</string>
     <string name="event_id">event_id</string>
+    <string name="event_description">event_description</string>
     <string name="user_id">user_id</string>
     <string name="user_description">user_description</string>
     <string name="balance">balance</string>
@@ -137,6 +138,7 @@
     <string name="requiredField">Required field</string>
     <string name="maxLength32">Maximum length 32</string>
     <string name="maxLength9">Maximum length 9</string>
+    <string name="maxLength10">Maximum length 10</string>
     <string name="titleAlertRemoveBracelet">Remove bracelet</string>
     <string name="messageAlertRemoveBracelet">You are going to remove this bracelet. Are you sure?</string>
     <string name="titleAlertInvalidPassword">Invalid password</string>
@@ -158,6 +160,7 @@
     <string name="successRemoveBracelet">Success in the removing proccess</string>
     <string name="successRechargeBalance">Success in the balance recharging process</string>
     <string name="userEventNotFound">User not found in this event</string>
+    <string name="userNotFound">The specified user does not exist</string>
     <string name="braceletAlreadyExists">That bracelet already exists</string>
     <string name="buttonTitleRemoveBracelet">Remove</string>
     <string name="buttonTitleAddBracelet">Add</string>
@@ -168,6 +171,7 @@
     <string name="nullEvent">Null event</string>
     <string name="transactiontype_id">transactiontype_id</string>
     <string name="terminal_serial_number">terminal_serial_number</string>
+    <string name="terminal_description">terminal_description</string>
     <string name="transaction_amount">transaction_amount</string>
     <string name="balanceRecharge">Balance recharge</string>
     <string name="messageAlertRechargeBalance1">You are about to recharge your balance with </string>
@@ -192,11 +196,12 @@
     <string name="hour">hour</string>
     <string name="bracelet_management">Bracelet management</string>
     <string name="notProductsSelected">You have not selected any product</string>
-    <string name="bracelet_name">Bracelet name</string>
-    <string name="addingBraceletTitle">Add nfc bracelet</string>
-    <string name="bracelet_code">Bracelet code</string>
-    <string name="user_name">User name</string>
-    <string name="search_by_user">Search by user</string>
+    <string name="bracelet_name">Description</string>
+    <string name="addingBraceletTitle">New bracelet</string>
+    <string name="bracelet_code">Code</string>
+    <string name="bracelet_code_form">Code *</string>
+    <string name="user_name">Associated user (optional)</string>
+    <string name="search_by_user">Search code by user</string>
     <string name="enterPassword">Enter your password</string>
     <string name="currentBalance">Current balance:</string>
     <string name="quantityToRecharge">Amount to recharge</string>
@@ -216,5 +221,67 @@
     <string name="id_drawable_listdrawer_logs">listdrawer_logs</string>
     <string name="id_drawable_listdrawer_nfcbracelet">listdrawer_nfcbracelet</string>
     <string name="id_drawable_listdrawer_logout">listdrawer_logout</string>
+
+    <string name="resource_id">resource_id</string>
+    <string name="resource_title">resource_title</string>
+    <string name="resource_price">resource_price</string>
+    <string name="resource_description">resource_description</string>
+    <string name="resource_img">resource_img</string>
+
+    <string name="network_lost_connexion">Internet connexion is lost</string>
+    <string name="network_recovered_connexion">Internet connexion is recovered</string>
+    <string name="no_internet_connexion">There isn\'t Internet connexion</string>
+
+    <string name="CODE_SUCCESSS">000</string>
+    <string name="CODE_WRONG_TOKEN">909</string>
+    <string name="CODE_NO_TOKEN">910</string>
+    <string name="CODE_WRONG_USER">911</string>
+    <string name="CODE_WRONG_PASSWORD">912</string>
+    <string name="CODE_REGISTER_ALREADY_EXISTS">902</string>
+    <string name="CODE_REGISTER_NO_EXISTS">903</string>
+    <string name="CODE_TERMINAL_OR_EVENT_NOT_EXIST">906</string>
+    <string name="CODE_NOT_REGISTERED_CURR_EVENT">907</string>
+
+    <string name="VAL_SUCCESS">1</string>
+    <string name="VAL_REFRESH_TOKEN">2</string>
+    <string name="VAL_ERROR">0</string>
+    <string name="VAL_IGNORE">-1</string>
+
+    <string name="shar_prefs_name">tfgapp_loginPrefs</string>
+    <string name="shar_prefs_saveLogin">tfgapp_saveLogin</string>
+    <string name="shar_prefs_terminal_serial_number">terminal_serial_number</string>
+    <string name="shar_prefs_password">password</string>
+    <string name="shar_prefs_token">token</string>
+    <string name="shar_prefs_event_id">event_id</string>
+    <string name="shar_prefs_event_description">event_description</string>
+    <string name="shar_prefs_terminal_description">terminal_description</string>
+
+    <string name="ws_user">user</string>
+    <string name="ws_password">password</string>
+
+    <string name="ws_token">Token</string>
+    <string name="token">token</string>
+
+    <string name="error_login">Login error</string>
+    <string name="error_authentication">Authentication error</string>
+    <string name="error_charging_products">Error while charging the products</string>
+    <string name="error_searching_user">Error searching the user</string>
+    <string name="error_charging_stats">Error while charging the statistics</string>
+
+    <string name="URL_TAGS">http://vpayment.perentec.com/API/V2/tags/</string>
+    <string name="URL_EVENTS">http://vpayment.perentec.com/API/V2/events/</string>
+    <string name="URL_TERMINALS">http://vpayment.perentec.com/API/V2/terminals/</string>
+    <string name="URL_RESOURCES_IMAGES">http://vpayment.perentec.com/resources/</string>
+    <string name="URL_TRANSACTIONS">http://vpayment.perentec.com/API/V2/transactions</string>
+    <string name="URL_PRODUCTS">http://vpayment.perentec.com/API/V2/products/</string>
+    <string name="URL_AUTHENTICATE">http://vpayment.perentec.com/API/V2/authenticate</string>
+    <string name="URL_STATS">http://vpayment.perentec.com/API/V2/stats</string>
+    <string name="URL_USERS">http://vpayment.perentec.com/API/V2/users</string>
+
+    <string name="tagDoesNotExist">The specified code does not exist</string>
+    <string name="unknown_event">Unknown evento</string>
+    <string name="unknown_term_desc"> </string>
+
+    <string name="no_event_associated">The terminal is not associated to any event</string>
 
 </resources>

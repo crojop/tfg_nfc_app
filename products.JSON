@@ -1,0 +1,24 @@
+{
+  "products": [
+    {
+      "description": "Malibú",
+      "price": 6
+    },
+    {
+      "description": "Vodka",
+      "price": 5
+    },
+    {
+      "description": "Aquarius",
+      "price": 2.5
+    },
+    {
+      "description": "Caipirinha",
+      "price": 7
+    },
+    {
+      "description": "Sangría",
+      "price": 4.5
+    }
+  ]
+}

@@ -5,22 +5,31 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TextInputLayout;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
+import com.example.cristina.tfgapp.controller_view.MainActivity;
+import com.example.cristina.tfgapp.controller_view.Utils;
 import com.example.cristina.tfgapp.singleton.MyRequestQueueSingleton;
 import com.example.cristina.tfgapp.R;
 import com.example.cristina.tfgapp.singleton.MyToastSingleton;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.concurrent.Callable;
 
 import ru.dimorinny.floatingtextbutton.FloatingTextButton;
 
@@ -35,8 +44,8 @@ public class DeleteTagActivity extends BraceletManagement {
     private RelativeLayout layoutSearchForUserName;
     private Animation fab_open,fab_close;
     private Button buttonDeleteSettings;
-    private final String URL_TAGS = "http://vpayment.perentec.com/API/V1/tags/";
     private boolean isFabOpen = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,26 +90,12 @@ public class DeleteTagActivity extends BraceletManagement {
         searchUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!inputLayoutSearchForUserName.getEditText().getText().toString().isEmpty()) {
-                    JsonObjectRequest jsArrayRequest = new JsonObjectRequest(
-                            Request.Method.GET, getUrlTags(),
-                            null,
-                            new Response.Listener<JSONObject>() {
-                                @Override
-                                public void onResponse(JSONObject response) {
-                                    findUser(response, inputLayoutSearchForUserName);
-                                }
-                            },
-                            new Response.ErrorListener() {
-                                @Override
-                                public void onErrorResponse(VolleyError error) {
-                                    MyToastSingleton.getInstance(DeleteTagActivity.this, DeleteTagActivity.this).
-                                            setError(getString(R.string.searchError));
-                                }
-                            }
-                    );
-                    MyRequestQueueSingleton.getInstance(getBaseContext()).addToRequestQueue(jsArrayRequest);
-                }
+                if (!inputLayoutSearchForUserName.getEditText().getText().toString().isEmpty())
+                    try {
+                        goFindUser(DeleteTagActivity.this, inputLayoutSearchForUserName);
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
             }
         });
         inputLayoutTag.getEditText().addTextChangedListener(new TextWatcherInputs(inputLayoutTag));
@@ -108,6 +103,7 @@ public class DeleteTagActivity extends BraceletManagement {
         inputLayoutSearchForUserName.getEditText().setOnFocusChangeListener(new OnFocusChangeListenerInputs(inputLayoutTag));
 
     }
+
 
     protected boolean isNotEmpty (){
         return !inputLayoutTag.getEditText().getText().toString().trim().isEmpty();
@@ -123,15 +119,11 @@ public class DeleteTagActivity extends BraceletManagement {
         AlertDialog alertDialog = new AlertDialog.Builder(DeleteTagActivity.this)
                 .setTitle(getString(R.string.titleAlertRemoveBracelet))
                 .setMessage(getString(R.string.messageAlertRemoveBracelet))
-                .setIcon(getDrawable(R.drawable.remove))
+                .setIcon(this.getResources().getDrawable(R.drawable.remove))
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         //Si lo confirma se procede a eliminar el tag del sistema
                         deleteTag();
-                        MyToastSingleton.getInstance(DeleteTagActivity.this, DeleteTagActivity.this).
-                                setSuccess(getString(R.string.successRemoveBracelet));
-                        finish();
-                        startActivity(getIntent());
                     }
                 })
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
@@ -168,29 +160,70 @@ public class DeleteTagActivity extends BraceletManagement {
 
     //Función que da de baja la pulsera en el sistema
     protected void deleteTag(){
-        StringRequest dr = new StringRequest(Request.Method.DELETE,
-            URL_TAGS + inputLayoutTag.getEditText().getText().toString().trim(),
-            new Response.Listener<String>()
-            {
-                @Override
-                public void onResponse(String response) {
-                    MyToastSingleton.getInstance(DeleteTagActivity.this, DeleteTagActivity.this).
-                            setSuccess(getString(R.string.successRemoveBracelet));
+        JsonObjectRequest dr = new JsonObjectRequest(Request.Method.DELETE,
+                getString(R.string.URL_TAGS) + inputLayoutTag.getEditText().getText().toString().trim()+Utils.getToken(this),null,
+                new Response.Listener<JSONObject>()
+                {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        if (validateDeleteResponse(response).equals(getString(R.string.VAL_SUCCESS))){
+                            MyToastSingleton.getInstance(DeleteTagActivity.this).setSuccess(getString(R.string.successRemoveBracelet));
+                            finish();
+                            startActivity(getIntent());
+                        } else if (validateDeleteResponse(response).equals(getString(R.string.VAL_ERROR))){
+                            MyToastSingleton.getInstance(DeleteTagActivity.this).setError(getString(R.string.errorRemoveBracelet));
+                        } else if (validateDeleteResponse(response).equals("2")) inputLayoutTag.getEditText().setError(getString(R.string.tagDoesNotExist));
+                    }
+                },
+                new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        if (error.getClass().equals(AuthFailureError.class)) {
+                            Utils.changeToken(DeleteTagActivity.this, new Callable<String>() {
+                                public String call() {
+                                    deleteTag();
+                                    return null;
+                                }
+                            });
+                        } else MyToastSingleton.getInstance(DeleteTagActivity.this).setError(getString(R.string.errorRemoveBracelet));
+                    }
                 }
-            },
-            new Response.ErrorListener()
-            {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    MyToastSingleton.getInstance(DeleteTagActivity.this, DeleteTagActivity.this).
-                            setError(getString(R.string.errorRemoveBracelet));
-                }
-            }
         );
         MyRequestQueueSingleton.getInstance(getBaseContext()).addToRequestQueue(dr);
     }
 
     protected void doSomething (String tag_code){
         inputLayoutTag.getEditText().setText(tag_code);
+    }
+
+    private String validateDeleteResponse (JSONObject response){
+        String result = getString(R.string.VAL_ERROR);
+        try {
+            String code = response.getString(getString(R.string.code));
+            if(code.equals(getString(R.string.CODE_SUCCESSS))) result = getString(R.string.VAL_SUCCESS);
+            else if (code.equals(getString(R.string.CODE_REGISTER_NO_EXISTS))) result = "2";
+        }
+        catch (JSONException e) {
+            Log.d(getString(R.string.error), getString(R.string.parsingError));
+        }
+        return result;
+    }
+
+    protected void manageResult (JSONObject response){
+        try {
+            JSONArray jsonArray = response.getJSONArray(getString(R.string.data));
+            if (jsonArray.length()>0) {
+                try {
+                    JSONObject objeto= jsonArray.getJSONObject(0);
+                    this.inputLayoutTag.getEditText().setText(String.valueOf(objeto.getInt(getString(R.string.tag_code))));
+                } catch (JSONException e) {
+                    Log.d(getString(R.string.error), getString(R.string.parsingError)+ e.getMessage());
+                }
+            }
+            else this.inputLayoutSearchForUserName.getEditText().setError(getString(R.string.userEventNotFound));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

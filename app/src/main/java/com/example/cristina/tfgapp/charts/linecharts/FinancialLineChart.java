@@ -31,7 +31,7 @@ public class FinancialLineChart extends AbstractLineChart {
         try {
             transactiontype_id = objeto.getInt(getString(R.string.transactiontype_id));
             total_amount = (transactiontype_id== TransactionU.TRANSACTION_PAYMENT)
-                    ? -objeto.getDouble(getString(R.string.total_amount)) : objeto.getDouble(getString(R.string.total_amount));
+                    ? objeto.getDouble(getString(R.string.total_amount)) : 0;
         } catch (JSONException e) {
             e.printStackTrace();
         }

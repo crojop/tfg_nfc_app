@@ -19,7 +19,7 @@
     <string name="action_sign_in">Iniciar sesión</string>
     <string name="action_sign_in_short">Iniciar sesión</string>
     <string name="error_invalid_tsn">Número de terminal incorrecto</string>
-    <string name="error_invalid_password">Contraseña demasiado corta</string>
+    <string name="error_too_short_password">Contraseña demasiado corta</string>
     <string name="error_incorrect_password">Contraseña incorrecta</string>
     <string name="error_field_required">Este campo es requerido</string>
     <string name="permission_rationale">El acceso a los contactos es necesario para autocompletar los campos del login
@@ -84,7 +84,7 @@
     <string name="statistics">Estadísticas</string>
     <string name="logs">Logs</string>
     <string name="configuration">Configuración</string>
-    <string name="exit">Salir</string>
+    <string name="exit">Cerrar sesión</string>
     <string name="DBProd">DBProd</string>
     <string name="tagReading">Lectura de la pulsera</string>
     <string name="unsupportedEncoding">Codificación no soportada</string>
@@ -120,6 +120,7 @@
     <string name="tag_code">tag_code</string>
     <string name="tag_description">tag_description</string>
     <string name="event_id">event_id</string>
+    <string name="event_description">event_description</string>
     <string name="user_id">user_id</string>
     <string name="user_description">user_description</string>
     <string name="balance">balance</string>
@@ -136,6 +137,7 @@
     <string name="requiredField">Campo requerido</string>
     <string name="maxLength32">Longitud máxima 32</string>
     <string name="maxLength9">Longitud máxima 9</string>
+    <string name="maxLength10">Longitud máxima 10</string>
     <string name="titleAlertRemoveBracelet">Dar de baja pulsera</string>
     <string name="messageAlertRemoveBracelet">¿Está seguro de que desea dar de baja esta pulsera?</string>
     <string name="titleAlertInvalidPassword">La contraseña introducida es incorrecta. </string>
@@ -157,16 +159,18 @@
     <string name="successRemoveBracelet">Se ha dado de baja correctamente la pulsera</string>
     <string name="successRechargeBalance">La recarga se ha realizado con éxito</string>
     <string name="userEventNotFound">El usuario no ha sido encontrado para este evento</string>
+    <string name="userNotFound">El usuario especificado no existe</string>
     <string name="braceletAlreadyExists">Esa pulsera ya está registrada</string>
     <string name="buttonTitleRemoveBracelet">Dar de baja</string>
     <string name="buttonTitleAddBracelet">Dar de alta</string>
     <string name="userAlreadyAssociatedToBracelet">Este usuario ya tiene una pulsera asociada para este evento</string>
-    <string name="pleaseReviseErrors">Por favor revise los errores </string>
-    <string name="pleaseFillFields">Por favor rellene todos los campos </string>
-    <string name="pleaseFillFieldsAndReviseError">Por favor revise los errores y rellene todos los campos </string>
+    <string name="pleaseReviseErrors">Por favor revise los errores</string>
+    <string name="pleaseFillFields">Por favor rellene todos los campos obligatorios</string>
+    <string name="pleaseFillFieldsAndReviseError">Por favor revise los errores y rellene todos los campos obligatorios</string>
     <string name="nullEvent">Evento nulo</string>
     <string name="transactiontype_id">transactiontype_id</string>
     <string name="terminal_serial_number">terminal_serial_number</string>
+    <string name="terminal_description">terminal_description</string>
     <string name="transaction_amount">transaction_amount</string>
     <string name="balanceRecharge">Recarga de saldo</string>
     <string name="messageAlertRechargeBalance1">¿Está seguro de que desea recargar</string>
@@ -191,11 +195,12 @@
     <string name="hour">hour</string>
     <string name="bracelet_management">Gestión de pulseras</string>
     <string name="notProductsSelected">No ha seleccionado ningún producto</string>
-    <string name="bracelet_name">Nombre de la pulsera</string>
-    <string name="addingBraceletTitle">Alta pulsera nfc</string>
-    <string name="bracelet_code">Código de la pulsera</string>
-    <string name="user_name">Nombre de usuario</string>
-    <string name="search_by_user">Buscar por usuario</string>
+    <string name="bracelet_name">Descripción</string>
+    <string name="addingBraceletTitle">Nueva pulsera</string>
+    <string name="bracelet_code">Código</string>
+    <string name="bracelet_code_form">Código *</string>
+    <string name="user_name">Usuario asociado</string>
+    <string name="search_by_user">Buscar código por usuario asociado</string>
     <string name="enterPassword">Introduzca su contraseña: </string>
     <string name="currentBalance">Saldo actual:</string>
     <string name="quantityToRecharge">Cantidad a ingresar</string>
@@ -220,4 +225,66 @@
     <string name="id_drawable_stats_recharge">stats_recharge</string>
     <string name="id_drawable_stats_payment">stats_payment</string>
 
+    <string name="resource_id">resource_id</string>
+    <string name="resource_title">resource_title</string>
+    <string name="resource_price">resource_price</string>
+    <string name="resource_description">resource_description</string>
+    <string name="resource_img">resource_img</string>
+
+    <string name="network_lost_connexion">Se ha perdido la conexión a Internet</string>
+    <string name="network_recovered_connexion">Se ha recuperado la conexión a Internet</string>
+    <string name="no_internet_connexion">No hay conexión a Internet</string>
+
+    <string name="CODE_SUCCESSS">000</string>
+    <string name="CODE_WRONG_TOKEN">909</string>
+    <string name="CODE_NO_TOKEN">910</string>
+    <string name="CODE_WRONG_USER">911</string>
+    <string name="CODE_WRONG_PASSWORD">912</string>
+    <string name="CODE_REGISTER_ALREADY_EXISTS">902</string>
+    <string name="CODE_REGISTER_NO_EXISTS">903</string>
+    <string name="CODE_TERMINAL_OR_EVENT_NOT_EXIST">906</string>
+    <string name="CODE_NOT_REGISTERED_CURR_EVENT">907</string>
+
+    <string name="VAL_SUCCESS">1</string>
+    <string name="VAL_REFRESH_TOKEN">2</string>
+    <string name="VAL_ERROR">0</string>
+    <string name="VAL_IGNORE">-1</string>
+
+    <string name="shar_prefs_name">tfgapp_loginPrefs</string>
+    <string name="shar_prefs_saveLogin">tfgapp_saveLogin</string>
+    <string name="shar_prefs_terminal_serial_number">terminal_serial_number</string>
+    <string name="shar_prefs_password">password</string>
+    <string name="shar_prefs_token">token</string>
+    <string name="shar_prefs_event_id">event_id</string>
+    <string name="shar_prefs_event_description">event_description</string>
+    <string name="shar_prefs_terminal_description">terminal_description</string>
+
+    <string name="ws_user">user</string>
+    <string name="ws_password">password</string>
+
+    <string name="ws_token">Token</string>
+    <string name="token">token</string>
+
+    <string name="error_login">Se ha producido un error al intentar iniciar sesión</string>
+    <string name="error_authentication">Error de autenticación</string>
+    <string name="error_charging_products">Error en la carga de productos</string>
+    <string name="error_searching_user">Se ha producido un error buscando el usuario en el sistema</string>
+    <string name="error_charging_stats">Se ha producido un error al cargar las estadísticas</string>
+
+    <string name="URL_TAGS">http://vpayment.perentec.com/API/V2/tags/</string>
+    <string name="URL_TERMINALS">http://vpayment.perentec.com/API/V2/terminals/</string>
+    <string name="URL_EVENTS">http://vpayment.perentec.com/API/V2/events/</string>
+    <string name="URL_RESOURCES_IMAGES">http://vpayment.perentec.com/resources/</string>
+    <string name="URL_TRANSACTIONS">http://vpayment.perentec.com/API/V2/transactions</string>
+    <string name="URL_PRODUCTS">http://vpayment.perentec.com/API/V2/products/</string>
+    <string name="URL_AUTHENTICATE">http://vpayment.perentec.com/API/V2/authenticate</string>
+    <string name="URL_STATS">http://vpayment.perentec.com/API/V2/stats</string>
+    <string name="URL_USERS">http://vpayment.perentec.com/API/V2/users</string>
+
+    <string name="tagDoesNotExist">El código especificado no existe</string>
+
+    <string name="unknown_event">Evento desconocido</string>
+    <string name="unknown_term_desc"> </string>
+
+    <string name="no_event_associated">El terminal no está asociado a ningún evento</string>
 </resources>

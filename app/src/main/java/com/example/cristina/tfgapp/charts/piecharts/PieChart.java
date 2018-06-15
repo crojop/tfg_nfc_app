@@ -3,6 +3,7 @@ package com.example.cristina.tfgapp.charts.piecharts;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -34,16 +35,7 @@ public class PieChart extends MyTerminal {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_piechart);
-        arrayListProducts = new ArrayList<Product>(){};
-        ArrayList<Product> arrayListAux = MainActivity.prodDataBaseHelper.selectAll();
-        /*arrayListProducts es un array list de Product donde se almacenarán aquellos productos que han sido comprados al menos una vez,
-        es decir, aquellos productos cuyo atributo quantity sea mayor que 0.
-        Para ello se utiliza un array list auxiliar, arrayListAux, en el que se vuelca toda la base de datos de productos */
-        for (Product product : arrayListAux){
-            if (product.getQuantity()>0) {
-                arrayListProducts.add(product);
-            }
-        }
+        arrayListProducts = MainActivity.prodDataBaseHelper.selectAll();
         if (arrayListProducts.size()!=0) drawChart();
         //si no hubiera datos a representar se mostraría un layout que lo indica.
         else setContentView(R.layout.nodata_layout);

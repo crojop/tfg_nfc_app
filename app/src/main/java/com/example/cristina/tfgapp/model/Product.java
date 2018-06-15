@@ -18,6 +18,28 @@ public class Product implements Parcelable {
     private int quantity; //Cantidad de unidades que lleva vendidas ese producto en este terminal
     private int added=0; //Número de elementos seleccionados de este producto en el proceso de compra actual
     private int visibility = View.INVISIBLE; //Visibilidad de la imagen del carrito de retirar producto (rojo) asociada
+    private String description;
+    private String res_image;
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setRes_image(String res_image) {
+        this.res_image = res_image;
+    }
+
+    public String getRes_image() {
+        return res_image;
+    }
 
     public Product(int id, String n, double p, int q, int i){
         this.id_product = id;
@@ -25,6 +47,16 @@ public class Product implements Parcelable {
         this.price = p;
         this.quantity = q;
         this.imageCart = i;
+    }
+
+    public Product(int id, String n, double p, int q, int i, String d, String r){
+        this.id_product = id;
+        this.name = n;
+        this.price = p;
+        this.quantity = q;
+        this.imageCart = i;
+        this.description = d;
+        this.res_image = r;
     }
 
     public int getQuantity() {
@@ -96,8 +128,10 @@ public class Product implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id_product);
         dest.writeString(name);
+        dest.writeString(description);
         dest.writeDouble(price);
         dest.writeInt(imageCart);
+        dest.writeString(res_image);
         dest.writeInt(added);
         dest.writeInt(visibility);
     }
@@ -115,8 +149,10 @@ public class Product implements Parcelable {
     private Product(Parcel in) {
         id_product = in.readInt();
         name = in.readString();
+        description = in.readString();
         price = in.readDouble();
         imageCart = in.readInt();
+        res_image = in.readString();
         added = in.readInt();
         visibility = in.readInt();
     }

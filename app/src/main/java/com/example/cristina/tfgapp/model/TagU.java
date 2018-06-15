@@ -3,6 +3,7 @@ package com.example.cristina.tfgapp.model;
 import android.content.Context;
 import android.util.Log;
 
+import com.example.cristina.tfgapp.controller_view.Utils;
 import com.example.cristina.tfgapp.controller_view.login.LoginActivity;
 import com.example.cristina.tfgapp.controller_view.MainActivity;
 import com.example.cristina.tfgapp.R;
@@ -86,44 +87,51 @@ public class TagU {
         return user;
     }
 
-    /*Función que recibe el json generado por un GET a un tag en concreto.
-    Si es válido devuelve true y asigna los valores recogidos del json al objeto currentTag
-    Si no es válido devuelve false.
-    */
-    public static boolean validateTag (JSONObject jsonObject, Context context){
-        boolean result=false;
+    public static String validateTag (JSONObject jsonObject, Context context){
+        String result= context.getString(R.string.VAL_ERROR);
         try {
             boolean error = jsonObject.getBoolean(context.getString(R.string.error));
-            String message = jsonObject.getString(context.getString(R.string.message));
-            if (!error && message.equals(context.getString(R.string.success))){
-                JSONArray jsonArray = jsonObject.getJSONArray(context.getString(R.string.data));
-                for(int i=0; i<jsonArray.length(); i++){
-                    try {
-                        JSONObject objeto= jsonArray.getJSONObject(i);
-                        if (String.valueOf(objeto.getInt(context.getString(R.string.tag_code)))!=null &&
-                                String.valueOf(objeto.getInt(context.getString(R.string.user_id)))!=null
-                                && objeto.getInt(context.getString(R.string.event_id))== LoginActivity.terminalU.getEventU().getEvent_id()){
-                            User currentUser = new User(objeto.getInt(context.getString(R.string.user_id)));
-                            currentUser.setUser_description(objeto.getString(context.getString(R.string.user_description)));
-                            currentUser.setBalance(objeto.getDouble(context.getString(R.string.balance)));
-
-                            MainActivity.currentTag.setTag_id(objeto.getInt(context.getString(R.string.tag_id)));
-                            MainActivity.currentTag.setTag_code(objeto.getInt(context.getString(R.string.tag_code)));
-                            MainActivity.currentTag.setTag_description(objeto.getString(context.getString(R.string.tag_description)));
-
-                            MainActivity.currentTag.setEventU(LoginActivity.terminalU.getEventU());
-                            MainActivity.currentTag.setUser(currentUser);
-                            result = true;
-                        }
-                    } catch (JSONException e) {
-                        Log.d(context.getString(R.string.error), context.getString(R.string.parsingError)+ e.getMessage());
-                    }
-                }
+            String code = jsonObject.getString(context.getString(R.string.code));
+            if (!error && code.equals(context.getString(R.string.CODE_SUCCESSS))) {
+                result = context.getString(R.string.VAL_SUCCESS);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
         return result;
+    }
+
+    /*Función que recibe el json generado por un GET a un tag en concreto.
+    Si es válido devuelve true y asigna los valores recogidos del json al objeto currentTag
+    Si no es válido devuelve false.
+    */
+    public static void setTagU (JSONObject jsonObject, Context context){
+        try {
+            JSONArray jsonArray = jsonObject.getJSONArray(context.getString(R.string.data));
+            for(int i=0; i<jsonArray.length(); i++){
+                try {
+                    JSONObject objeto= jsonArray.getJSONObject(i);
+                    if (String.valueOf(objeto.getInt(context.getString(R.string.tag_code)))!=null &&
+                            String.valueOf(objeto.getInt(context.getString(R.string.user_id)))!=null
+                            && objeto.getInt(context.getString(R.string.event_id))== MainActivity.terminalU.getEventU().getEvent_id()){
+                        User currentUser = new User(objeto.getInt(context.getString(R.string.user_id)));
+                        currentUser.setUser_description(objeto.getString(context.getString(R.string.user_description)));
+                        currentUser.setBalance(objeto.getDouble(context.getString(R.string.balance)));
+
+                        MainActivity.currentTag.setTag_id(objeto.getInt(context.getString(R.string.tag_id)));
+                        MainActivity.currentTag.setTag_code(objeto.getInt(context.getString(R.string.tag_code)));
+                        MainActivity.currentTag.setTag_description(objeto.getString(context.getString(R.string.tag_description)));
+
+                        MainActivity.currentTag.setEventU(MainActivity.terminalU.getEventU());
+                        MainActivity.currentTag.setUser(currentUser);
+                    }
+                } catch (JSONException e) {
+                    Log.d(context.getString(R.string.error), context.getString(R.string.parsingError)+ e.getMessage());
+                }
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }
 

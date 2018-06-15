@@ -2,9 +2,18 @@ package com.example.cristina.tfgapp.singleton;
 
 import android.content.Context;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.RetryPolicy;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
+import com.example.cristina.tfgapp.R;
+import com.example.cristina.tfgapp.controller_view.Utils;
+
+import java.util.HashMap;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by Cristina on 15/11/17.
@@ -38,8 +47,9 @@ public final class MyRequestQueueSingleton {
         return requestQueue;
     }
 
-    public void addToRequestQueue(Request req) {
-        getRequestQueue().add(req);
+
+    public void addToRequestQueue(Request req){
+      getRequestQueue().add(req);
     }
 
 }

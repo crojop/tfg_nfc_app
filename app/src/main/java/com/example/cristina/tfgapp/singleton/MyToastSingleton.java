@@ -25,17 +25,17 @@ public final class MyToastSingleton extends Toast {
     private ImageView imageViewMyToast;
     private static MyToastSingleton ourInstance;
 
-    public static MyToastSingleton getInstance(Context context, Activity activity) {
+    public static MyToastSingleton getInstance(Context context) {
         if (ourInstance == null) {
-            ourInstance = new MyToastSingleton(context, activity);
+            ourInstance = new MyToastSingleton(context);
         }
         return ourInstance;
     }
 
-    private MyToastSingleton(Context context, Activity activity) {
+    private MyToastSingleton(Context context) {
         super(context);
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View layout = inflater.inflate(R.layout.toast_layout, (ViewGroup) activity.findViewById(R.id.lytLayout));
+        View layout = inflater.inflate(R.layout.toast_layout, null);
         textViewMyToast = (TextView) layout.findViewById(R.id.txtMensaje);
         imageViewMyToast = (ImageView) layout.findViewById(R.id.imgIcono);
         this.setDuration(Toast.LENGTH_SHORT);

@@ -9,17 +9,19 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.cristina.tfgapp.controller_view.MainActivity;
 import com.example.cristina.tfgapp.singleton.MyRequestQueueSingleton;
 import com.example.cristina.tfgapp.R;
 import com.example.cristina.tfgapp.model.Statistic;
 import com.example.cristina.tfgapp.model.TransactionU;
-import com.example.cristina.tfgapp.controller_view.UtilsDate;
-import com.example.cristina.tfgapp.controller_view.login.LoginActivity;
+import com.example.cristina.tfgapp.controller_view.Utils;
 import com.example.cristina.tfgapp.charts.AbstractChart;
+import com.example.cristina.tfgapp.singleton.MyToastSingleton;
 
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
@@ -37,6 +39,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.concurrent.Callable;
 
 import static android.content.ContentValues.TAG;
 
@@ -46,10 +49,8 @@ import static android.content.ContentValues.TAG;
 
 public abstract class AbstractBarChart extends AbstractChart {
     protected ArrayList<DateElement> arrayListDates;
-    protected final String URL_GET_STATISTICS = "http://vpayment.perentec.com/API/V1/stats";
     protected final String QUERY_STRING_TER_NUM = "?terminal_serial_number=";
     protected DateElement[] arrayDates;
-    private static final String SUCCESS_CODE = "000";
     public GraphicalView gvchart;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -176,10 +177,10 @@ public abstract class AbstractBarChart extends AbstractChart {
 
         @Override
         public int compareTo(@NonNull DateElement o) {
-            if (UtilsDate.stringToMillisecondsNew(date, getPattern()) < UtilsDate.stringToMillisecondsNew(o.date, getPattern())) {
+            if (Utils.stringToMillisecondsNew(date, getPattern()) < Utils.stringToMillisecondsNew(o.date, getPattern())) {
                 return -1;
             }
-            if (UtilsDate.stringToMillisecondsNew(date, getPattern()) > UtilsDate.stringToMillisecondsNew(o.date, getPattern())) {
+            if (Utils.stringToMillisecondsNew(date, getPattern()) > Utils.stringToMillisecondsNew(o.date, getPattern())) {
                 return 1;
             }
             return 0;
@@ -229,16 +230,19 @@ public abstract class AbstractBarChart extends AbstractChart {
     protected void getStats (final String graph_title, final int graph_color, final String graph_legend, final Class line_chart_class){
         JsonObjectRequest jsArrayRequest = new JsonObjectRequest(
                 Request.Method.GET,
-                URL_GET_STATISTICS+QUERY_STRING_TER_NUM+ LoginActivity.terminalU.getTerminal_serial_number()+getQueryStringCont(),
+                getString(R.string.URL_STATS)+QUERY_STRING_TER_NUM+ MainActivity.terminalU.getTerminal_serial_number()+getQueryStringCont()+getTokenCont(),
                 null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         /*response aquí contiene todas las estadísticas para ese número de terminal, y si getQueryCont() contuviera algo,
                         también para ese tipo de transacción; pago o recarga */
-                        gatherData(response); //trata esa información y la pasa de json a array de objetos Statistic
-                        getMaxY(); //Calcula el mayor valor de y que se va a representar (para generar la altura del eje)
-                        normalize();
+                        if (gatherData(response).equals(getString(R.string.VAL_SUCCESS))){
+                            getMaxY(); //Calcula el mayor valor de y que se va a representar (para generar la altura del eje)
+                            normalize();
+                        } else if (gatherData(response).equals(getString(R.string.VAL_ERROR))){
+                            MyToastSingleton.getInstance(AbstractBarChart.this).setError(getString(R.string.error_charging_stats));
+                        }
                         //Si hay info, se genera el gráfico, si no, se muestra pantalla de "No hay datos"
                         if (arrayDates.length!=0)
                             drawChart(graph_title, graph_color, graph_legend, line_chart_class);
@@ -249,8 +253,15 @@ public abstract class AbstractBarChart extends AbstractChart {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        pDialog.dismiss(); //que no se cierre el diálogo to do el rato y se abra
                         Log.d(getString(R.string.error), getString(R.string.errorJsonResponse) + error.getMessage());
+                        if (error.getClass().equals(AuthFailureError.class)) {
+                            Utils.changeToken(AbstractBarChart.this, new Callable<String>() {
+                                public String call() {
+                                    getStats(graph_title, graph_color, graph_legend, line_chart_class);
+                                    return null;
+                                }
+                            });
+                        } else pDialog.dismiss(); //que no se cierre el diálogo to do el rato y se abra
                     }
                 }
         );
@@ -262,9 +273,10 @@ public abstract class AbstractBarChart extends AbstractChart {
     Esta función recibe por parámetro el objeto JSON con todas las estadísticas del sistema y las convierte en un array list de objetos Statistic,
     que luego le pasa a la función orderByDay para que la ordene por horas
      */
-    protected void gatherData (JSONObject jsonObject){
+    protected String gatherData (JSONObject jsonObject){
+        String result = getString(R.string.VAL_ERROR);
         try {
-            if (jsonObject.getString(getString(R.string.code)).equals(SUCCESS_CODE)) {
+            if (jsonObject.getString(getString(R.string.code)).equals(getString(R.string.CODE_SUCCESSS))) {
                 JSONArray jsonArray = jsonObject.getJSONArray(getString(R.string.data));
                 ArrayList<Statistic> statisticArrayList = new ArrayList<Statistic>(){};
                 for(int i=0; i<jsonArray.length(); i++){
@@ -272,11 +284,12 @@ public abstract class AbstractBarChart extends AbstractChart {
                         JSONObject objeto= jsonArray.getJSONObject(i);
                         String day = String.valueOf(objeto.getInt(getString(R.string.day)));
                         int transactiontype_id = objeto.getInt(getString(R.string.transactiontype_id));
-                        double total_amount = (transactiontype_id== TransactionU.TRANSACTION_PAYMENT) ? -objeto.getDouble(getString(R.string.total_amount)) : objeto.getDouble(getString(R.string.total_amount));
+                        double total_amount = (transactiontype_id== TransactionU.TRANSACTION_PAYMENT) ? objeto.getDouble(getString(R.string.total_amount)) : 0;
                         int number_of_transactions = objeto.getInt(getString(R.string.number_of_transactions));
                         Statistic statistic = new Statistic(day, transactiontype_id, number_of_transactions);
                         statistic.setTotal_amount(total_amount);
                         statisticArrayList.add(statistic);
+                        result = getString(R.string.VAL_SUCCESS);
                     } catch (JSONException e) {
                         Log.e(TAG, getString(R.string.parsingError)+ e.getMessage());
                     }
@@ -286,6 +299,7 @@ public abstract class AbstractBarChart extends AbstractChart {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        return result;
     }
 
     /*
