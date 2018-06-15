@@ -16,9 +16,23 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Acerque una pulsera al dispositivo para realizar la lectura"
+                android:textSize="22dp"
+                android:paddingTop="34dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:textColor="@color/colorBlack"
+                android:fontFamily="sans-serif-thin"/>
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
                 android:src="@drawable/taptoscan_336x"
                 android:maxHeight="40sp"/>
 

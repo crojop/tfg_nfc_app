@@ -42,7 +42,8 @@
             android:paddingLeft="12dp"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:scaleType="fitXY"/>
+            android:scaleType="fitXY"
+            android:layout_gravity="center_vertical"/>
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_toRightOf="@id/div_1"
@@ -55,7 +56,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="12dp"
-                android:textSize="18dip"
+                android:textSize="14dip"
+                android:fontFamily="sans-serif"
+                android:layout_marginRight="26dp"
+                android:paddingRight="26dp"
+                android:textStyle="normal"/>
+            <TextView
+                android:id="@+id/textViewSku"
+                android:textColor="@color/colorBlack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textViewName"
+                android:paddingLeft="12dp"
+                android:textSize="14dip"
                 android:fontFamily="sans-serif"
                 android:layout_marginRight="26dp"
                 android:paddingRight="26dp"
@@ -64,9 +77,9 @@
                 android:id="@+id/textViewPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/textViewName"
+                android:layout_below="@id/textViewSku"
                 android:textColor="#546e7a"
-                android:textSize="17dip"
+                android:textSize="12dip"
                 android:paddingLeft="12dp"
                 android:fontFamily="sans-serif"
                 android:layout_marginRight="26dp"
